@@ -10,6 +10,9 @@
 .text-red {
   color: #e74c3c;
 }
+.text-blue {
+  color: #2980b9;
+}
 .text-even-bigger {
   font-size: 1.6em;
 }
@@ -79,6 +82,9 @@
 .m0 {
   margin: 0;
 }
+.block {
+  display: block;
+}
 .flex {
   display: flex;
 }
@@ -92,7 +98,7 @@
   align-items: stretch;
 }
 .flex-basis {
-  flex-basis: 33%;
+  flex-basis: 30%;
 }
 .flex-grow {
   flex-grow: 1;
@@ -119,18 +125,38 @@ body main header .container .new-task input {
   outline: none;
   border-bottom: 3px solid #ecf0f1;
   background-color: transparent;
-  color: #ecf0f1;
+  color: #fff;
 }
 body main header .container .new-task input::-webkit-input-placeholder {
   color: rgba(236, 240, 241, 0.75);
 }
-body main .task {
+body main header .container .new-task a.add {
+  border-radius: 4px;
+  margin-top: 0.5em;
+  text-decoration: none;
+}
+body main section .task {
   border-radius: 4px;
 }
-body main .task p {
+body main section .task p {
   line-height: 1.5em;
 }
+body main section .task p a.remove {
+  opacity: 0;
+  margin-left: 0.5em;
+  color: #e74c3c;
+  font-size: 0.7em;
+}
+body main section .task p a.remove:hover {
+  border-bottom: 1px solid rgba(231, 76, 60, 0.5);
+}
+body main section .task:hover a.remove {
+  opacity: 1;
+}
 body .right-panel {
+  position: fixed;
+  height: 100vh;
+  overflow: scroll;
   border-left: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
 body .right-panel header {

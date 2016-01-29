@@ -29,14 +29,17 @@
 
 							.new-task.center
 								%input#new-task-field.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "What will you do next?" }
+								%a.add.block.text-center.wrap-1x.white.text-blue{href: "#"}
+									Add to list
 
-					%section.flex.flex-wrap.wrap-1x
-						- 5.times do
+					%section.flex.flex-wrap
+						- 14.times do
 							.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white
 								%p.m0
 									%i.fa.fa-square-o.icon-spacer-right.text-grey
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 									tempor incididunt ut labore et dolore magna aliqua.
+									%a.remove.text-red Remove
 
 			.right-panel.white
 				%aside
@@ -45,7 +48,7 @@
 						%h2.m0.w400 You've accomplished 5 tasks
 
 					%section
-						- 5.times do
+						- 10.times do
 							.task.wrap-2x.text-bigger
 								%p.m0.text-grey
 									%i.fa.fa-check-square-o.icon-spacer-right
