@@ -18,20 +18,32 @@
 		-#%script{:src => "/assets/scripts.js"}
 
 
-	%body.white
-		%header.true-white
-			.container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
-				-#%h1.m0.text-center LocalList
-				-#%h2.text-smaller.m0.w900.text-grey You have 12 tasks to accomplish
+	%body
+		.flex.align-items-stretch
+			.left-panel
+				%header
+					.container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
+						-#%h1.m0.text-center LocalList
+						-#%h2.text-smaller.m0.w900.text-grey You have 12 tasks to accomplish
 
-				.new-task.center
-					%input#new-task-field.g-100.wrap-1x.text-bigger{ type: "text", placeholder: "What will you do next?" }
-		
-		%main.flex.flex-wrap.wrap-1x
-			- 5.times do
-				.task.wrap-2x.text-bigger.flex-basis.flex-grow
-					%p.m0
-						-#%i.fa.fa-check-square-o.text-bigger.icon-spacer-right
-						%i.fa.fa-square-o.icon-spacer-right.text-grey
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.
+						.new-task.center
+							%input#new-task-field.g-100.wrap-1x.text-bigger{ type: "text", placeholder: "What will you do next?" }
+				
+				%main.flex.flex-wrap.wrap-1x
+					- 5.times do
+						.task.wrap-2x.text-bigger.flex-basis.flex-grow
+							%p.m0
+								%i.fa.fa-square-o.icon-spacer-right.text-grey
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua.
+
+			.right-panel
+				%aside
+					.wrap-2x
+						%h1.m0 Congrats
+						%h2.m0.w400 You've accomplished 5 tasks
+					- 5.times do
+						.task.wrap-2x.text-bigger.flex-basis.flex-grow
+							%p.m0.text-grey
+								%i.fa.fa-check-square-o.icon-spacer-right
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit.

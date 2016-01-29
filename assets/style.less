@@ -52,6 +52,9 @@
 .flex-grow { flex-grow: 1; }
 
 body {
+	> .flex {
+		min-height: 100vh;
+	}
 	.text-sans;
 	.text-black;
 	* {
@@ -62,6 +65,7 @@ body {
 // ### HEADER ##################################################################
 
 body header {
+	border-bottom: 1px solid fadeout(@black, 80%);
 	.container {
 		height: 40vh;
 		.new-task {
@@ -79,6 +83,15 @@ body header {
 
 
 
+// ### RIGHT PANEL #############################################################
+
+body {
+	.right-panel {
+		border-left: 1px solid fadeout(@black, 80%);
+	}
+}
+
+
 // ### TASKS ###################################################################
 
 body main {
@@ -91,3 +104,57 @@ body main {
 
 
 
+// ### MEDIA QUERIES ###########################################################
+
+// XS
+@media (max-width: 767px) {
+	.flex-basis { flex-basis: 100%; }
+	body {
+		.text-smaller;
+		header {
+			.container {
+				height: 30vh;
+			}
+			.new-task {
+				.g-100;
+			}
+		}
+		main {
+			.wrap-2x { padding: 1em; }
+		}
+		.right-panel {
+			display: none;
+		}
+	}
+}
+
+// MD
+@media (min-width: 768px) and (max-width: 1399px) {
+	body {
+		header {
+			.new-task {
+				.g-80;
+			}
+		}
+		.right-panel {
+			display: none;
+		}
+	}
+}
+
+// LG
+@media (min-width: 1400px) {
+	body {
+		header {
+			.new-task {
+				.g-50;
+			}
+		}
+		.right-panel {
+			.g-30;
+		}
+		.left-panel {
+			.g-70;
+		}
+	}
+}

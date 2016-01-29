@@ -101,8 +101,14 @@ body {
   font-family: "Roboto", sans-serif;
   color: #190000;
 }
+body > .flex {
+  min-height: 100vh;
+}
 body * {
   box-sizing: border-box;
+}
+body header {
+  border-bottom: 1px solid rgba(25, 0, 0, 0.19999999999999996);
 }
 body header .container {
   height: 40vh;
@@ -115,6 +121,48 @@ body header .container .new-task input {
 body header .container .new-task input::-webkit-input-placeholder {
   color: rgba(25, 0, 0, 0.30000000000000004);
 }
+body .right-panel {
+  border-left: 1px solid rgba(25, 0, 0, 0.19999999999999996);
+}
 body main .task p {
   line-height: 1.5em;
+}
+@media (max-width: 767px) {
+  .flex-basis {
+    flex-basis: 100%;
+  }
+  body {
+    font-size: 0.7em;
+  }
+  body header .container {
+    height: 30vh;
+  }
+  body header .new-task {
+    width: 100%;
+  }
+  body main .wrap-2x {
+    padding: 1em;
+  }
+  body .right-panel {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1399px) {
+  body header .new-task {
+    width: 80%;
+  }
+  body .right-panel {
+    display: none;
+  }
+}
+@media (min-width: 1400px) {
+  body header .new-task {
+    width: 50%;
+  }
+  body .right-panel {
+    width: 30%;
+  }
+  body .left-panel {
+    width: 70%;
+  }
 }
