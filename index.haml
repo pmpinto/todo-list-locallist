@@ -20,30 +20,33 @@
 
 	%body
 		.flex.align-items-stretch
-			.left-panel
-				%header
-					.container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
-						-#%h1.m0.text-center LocalList
-						-#%h2.text-smaller.m0.w900.text-grey You have 12 tasks to accomplish
+			.left-panel.white
+				%main
+					%header
+						.container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
+							-#%h1.m0.text-center LocalList
+							-#%h2.text-smaller.m0.w700.text-grey You have 12 tasks to accomplish
 
-						.new-task.center
-							%input#new-task-field.g-100.wrap-1x.text-bigger{ type: "text", placeholder: "What will you do next?" }
-				
-				%main.flex.flex-wrap.wrap-1x
-					- 5.times do
-						.task.wrap-2x.text-bigger.flex-basis.flex-grow
-							%p.m0
-								%i.fa.fa-square-o.icon-spacer-right.text-grey
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua.
+							.new-task.center
+								%input#new-task-field.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "What will you do next?" }
 
-			.right-panel
+					%section.flex.flex-wrap.wrap-1x
+						- 5.times do
+							.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white
+								%p.m0
+									%i.fa.fa-square-o.icon-spacer-right.text-grey
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua.
+
+			.right-panel.white
 				%aside
-					.wrap-2x
-						%h1.m0 Congrats
+					%header.wrap-2x.true-white
+						%h1.m0.w700 Congrats
 						%h2.m0.w400 You've accomplished 5 tasks
-					- 5.times do
-						.task.wrap-2x.text-bigger.flex-basis.flex-grow
-							%p.m0.text-grey
-								%i.fa.fa-check-square-o.icon-spacer-right
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+					%section
+						- 5.times do
+							.task.wrap-2x.text-bigger
+								%p.m0.text-grey
+									%i.fa.fa-check-square-o.icon-spacer-right
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit.

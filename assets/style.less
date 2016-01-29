@@ -1,13 +1,14 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,900|Roboto+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 
 
 // ### UTILS ###################################################################
 
-@white: #FFF2F2;
-@black: #190000;
-@red: #FF4040;
+@white: #ECF0F1;
+@black: #2C3E50;
+@red: #E74C3C;
+@blue: #2980B9;
 
 .text-black { color: @black; }
 .text-grey { color: fadeout(@black, 50%); }
@@ -20,19 +21,20 @@
 
 .text-center { text-align: center; }
 
-.text-sans { font-family: "Roboto", sans-serif; }
-.text-condensed { font-family: "Roboto Condensed", sans-serif; }
+.text-sans { font-family: "Roboto Condensed", sans-serif; }
+//.text-condensed { font-family: "Roboto Condensed", sans-serif; }
 
-.icon-spacer-right { margin-right: 0.5em; }
+.icon-spacer-right { margin-right: 0.4em; }
 
 .w400 { font-weight: 400; }
-.w900 { font-weight: 900; }
+.w700 { font-weight: 700; }
 
 .wrap-1x { padding: 1em; }
 .wrap-2x { padding: 2em; }
 .wrap-3x { padding: 3em; }
 
 .white { background-color: @white; }
+.black { background-color: @black; }
 .true-white { background-color: #fff; }
 .red { background-color: @red; }
 
@@ -62,20 +64,34 @@ body {
 	}
 }
 
-// ### HEADER ##################################################################
+// ### MAIN ####################################################################
 
-body header {
-	border-bottom: 1px solid fadeout(@black, 80%);
-	.container {
-		height: 40vh;
-		.new-task {
-			input {
-				border: none;
-				outline: none;
-				border-bottom: 3px solid @black;
-				&::-webkit-input-placeholder {
-					color: fadeout(@black, 70%);
+body {
+	main {
+		header {
+			border-bottom: 1px solid fadeout(@black, 80%);
+			background-color: fadeout(@black, 50%);
+			.container {
+				height: 40vh;
+				.new-task {
+					input {
+						border: none;
+						outline: none;
+						border-bottom: 3px solid @white;
+						background-color: transparent;
+						color: @white;
+						&::-webkit-input-placeholder {
+							color: fadeout(@white, 25%);
+						}
+					}
 				}
+			}
+		}
+		.task {
+			border-radius: 4px;
+			//box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			p {
+				line-height: 1.5em;
 			}
 		}
 	}
@@ -88,16 +104,8 @@ body header {
 body {
 	.right-panel {
 		border-left: 1px solid fadeout(@black, 80%);
-	}
-}
-
-
-// ### TASKS ###################################################################
-
-body main {
-	.task {
-		p {
-			line-height: 1.5em;
+		header {
+			border-bottom: 1px solid fadeout(@black, 80%);
 		}
 	}
 }
@@ -111,16 +119,23 @@ body main {
 	.flex-basis { flex-basis: 100%; }
 	body {
 		.text-smaller;
-		header {
-			.container {
-				height: 30vh;
-			}
-			.new-task {
-				.g-100;
-			}
-		}
 		main {
-			.wrap-2x { padding: 1em; }
+			header {
+				.container {
+					height: 30vh;
+				}
+				.new-task {
+					.g-100;
+				}
+			}
+			section {
+				.wrap-1x { padding: 0em; }
+				.wrap-2x { padding: 1.5em; }
+				.task {
+					//border-bottom: 1px solid fadeout(@black, 80%);
+					margin-bottom: 0.1em;
+				}
+			}
 		}
 		.right-panel {
 			display: none;
@@ -150,11 +165,14 @@ body main {
 				.g-50;
 			}
 		}
-		.right-panel {
-			.g-30;
-		}
 		.left-panel {
 			.g-70;
+		}
+		.right-panel {
+			.g-30;
+			.task {
+				border-bottom: 1px solid fadeout(@black, 80%);
+			}
 		}
 	}
 }
