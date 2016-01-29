@@ -1,0 +1,93 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900|Roboto+Condensed);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+
+// ### UTILS ###################################################################
+
+@white: #FFF2F2;
+@black: #190000;
+@red: #FF4040;
+
+.text-black { color: @black; }
+.text-grey { color: fadeout(@black, 50%); }
+.text-red { color: @red; }
+
+.text-even-bigger { font-size: 1.6em; }
+.text-bigger { font-size: 1.3em; }
+.text-smaller { font-size: 0.7em; }
+.text-even-smaller { font-size: 0.4em; }
+
+.text-center { text-align: center; }
+
+.text-sans { font-family: "Roboto", sans-serif; }
+.text-condensed { font-family: "Roboto Condensed", sans-serif; }
+
+.icon-spacer-right { margin-right: 0.5em; }
+
+.w400 { font-weight: 400; }
+.w900 { font-weight: 900; }
+
+.wrap-1x { padding: 1em; }
+.wrap-2x { padding: 2em; }
+.wrap-3x { padding: 3em; }
+
+.white { background-color: @white; }
+.true-white { background-color: #fff; }
+.red { background-color: @red; }
+
+.g-30 { width: 30%; }
+.g-50 { width: 50%; }
+.g-70 { width: 70%; }
+.g-80 { width: 80%; }
+.g-100 { width: 100%; }
+.center { margin: 0 auto; }
+.m0 { margin: 0; }
+
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.align-items-center { align-items: center; }
+.align-items-stretch { align-items: stretch; }
+.flex-basis { flex-basis: 33%; }
+.flex-grow { flex-grow: 1; }
+
+body {
+	.text-sans;
+	.text-black;
+	* {
+		box-sizing: border-box;
+	}
+}
+
+// ### HEADER ##################################################################
+
+body header {
+	.container {
+		height: 40vh;
+		.new-task {
+			input {
+				border: none;
+				outline: none;
+				border-bottom: 3px solid @black;
+				&::-webkit-input-placeholder {
+					color: fadeout(@black, 70%);
+				}
+			}
+		}
+	}
+}
+
+
+
+// ### TASKS ###################################################################
+
+body main {
+	.task {
+		p {
+			line-height: 1.5em;
+		}
+	}
+}
+
+
+
