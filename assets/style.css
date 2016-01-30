@@ -70,9 +70,6 @@
 .g-30 {
   width: 30%;
 }
-.g-50 {
-  width: 50%;
-}
 .g-70 {
   width: 70%;
 }
@@ -122,6 +119,15 @@ body > .flex {
 body * {
   box-sizing: border-box;
 }
+body .flex {
+  flex-wrap: wrap;
+}
+body p a {
+  text-decoration: none;
+}
+body p a:hover {
+  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
+}
 .welcome {
   position: fixed;
   width: 100%;
@@ -133,12 +139,6 @@ body * {
 .welcome .flex {
   height: 100vh;
   background-color: rgba(236, 240, 241, 0.92);
-}
-.welcome p a {
-  text-decoration: none;
-}
-.welcome p a:hover {
-  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
 }
 .welcome .get-started a {
   border-radius: 4px;
@@ -167,24 +167,28 @@ body .left-panel main header {
 body .left-panel main header .container {
   height: 40vh;
 }
-body .left-panel main header .container .new-task input {
+body .left-panel main header .container .new-task input,
+body .left-panel main header .container .editing-task input {
   border: none;
   outline: none;
   border-bottom: 3px solid #fff;
   background-color: transparent;
   color: #fff;
 }
-body .left-panel main header .container .new-task input::-webkit-input-placeholder {
+body .left-panel main header .container .new-task input::-webkit-input-placeholder,
+body .left-panel main header .container .editing-task input::-webkit-input-placeholder {
   color: rgba(236, 240, 241, 0.75);
 }
-body .left-panel main header .container .new-task a.add {
+body .left-panel main header .container .new-task a.add,
+body .left-panel main header .container .editing-task a.add {
   border-radius: 4px;
   margin-top: 0.5em;
   text-decoration: none;
   -webkit-transition: all 2s ease;
   transition: all 2s ease;
 }
-body .left-panel main header .container .new-task a.add:hover {
+body .left-panel main header .container .new-task a.add:hover,
+body .left-panel main header .container .editing-task a.add:hover {
   background-color: #2980b9;
   color: #ecf0f1;
   -webkit-transition: all 150ms ease;
@@ -200,6 +204,13 @@ body .left-panel main section .task {
 body .left-panel main section .task p {
   line-height: 1.5em;
 }
+body .left-panel main section .task p span {
+  cursor: pointer;
+}
+body .left-panel main section .task p span:hover {
+  color: #2980b9;
+  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
+}
 body .left-panel main section .task p a.remove {
   opacity: 0;
   margin-left: 0.5em;
@@ -208,6 +219,10 @@ body .left-panel main section .task p a.remove {
 }
 body .left-panel main section .task p a.remove:hover {
   border-bottom: 1px solid rgba(231, 76, 60, 0.5);
+}
+body .left-panel main section .task.is-editing {
+  background-color: #7fbbe3;
+  color: #ecf0f1;
 }
 body .left-panel main section .task:hover {
   -webkit-transition: all 150ms ease;
@@ -232,9 +247,6 @@ body .left-panel main section .task.ng-leave-active {
   transform: scaleY(0.1);
   transform-origin: center center;
   opacity: 0;
-}
-body .flex {
-  flex-wrap: wrap;
 }
 body .right-panel {
   width: 100%;
@@ -289,7 +301,8 @@ body .right-panel section .task.ng-enter-active p {
   body main header .container {
     height: 30vh;
   }
-  body main header .new-task {
+  body main header .new-task,
+  body main header .editing-task {
     width: 100%;
   }
   body main section .wrap-1x {
@@ -303,15 +316,14 @@ body .right-panel section .task.ng-enter-active p {
   }
 }
 @media (min-width: 768px) and (max-width: 1399px) {
-  body .flex {
-    flex-wrap: wrap;
-  }
-  body header .new-task {
+  body header .new-task,
+  body header .editing-task {
     width: 80%;
   }
 }
 @media (min-width: 1400px) {
-  body header .new-task {
+  body header .new-task,
+  body header .editing-task {
     width: 70%;
   }
   body .left-panel {

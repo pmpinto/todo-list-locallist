@@ -63,7 +63,7 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 		switch (event.keyCode) {
 			case 13: // ENTER
 				$scope.add_new_task(new_task);
-		    break;
+			break;
 		}
 	};
 	
@@ -103,6 +103,46 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 		localStorageService.set("oldVisitor", true);
 		$scope.old_visitor = true;
 	};
+	
+
+
+	// ### EDIT TASK ###########################################################
+
+	$scope.edit_task = function(task) {
+		$scope.editing_task = task;
+	};
+	
+
+
+	// ### IS EDITING THIS TASK? ###############################################
+
+	$scope.is_editing_task = function(task) {
+		return task == $scope.editing_task;
+	};
+
+
+
+	// ### SAVE EDITED TASK ####################################################
+
+	$scope.update_task = function() {
+		$scope.editing_task = null;
+	};
+
+
+
+	// ### KEYPRESS EVENT ON TEXT INPUT ########################################
+	
+	$scope.keypressed_on_edit_task = function(event) {
+		//console.log(event);
+		
+		switch (event.keyCode) {
+			case 13: // ENTER
+				$scope.update_task();
+			break;
+		}
+	};
+
+	
 	
 
 }]);

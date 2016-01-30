@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Pedro Pinto" name="Author">
-    <title>LocalList</title>
+    <title>LocalList — A simple todo list hosted on local storage</title>
     <link href="/assets/style.css" rel="stylesheet">
   </head>
   <body ng-controller="TasksController">
@@ -14,7 +14,7 @@
         <div class="wrap-3x text-center text-bigger g-100">
           <h1 class="m0 w700">Welcome to LocalList!</h1>
           <h2 class="m0 w400">A todo list that gets saved to the local storage of your browser.</h2>
-          <p>You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>.</p>
+          <p class="text-grey">You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a> if you wish.</p>
           <div class="wrap-2x get-started">
             <a class="wrap-1x true-white text-blue" ng-click="get_started()">Get started!</a>
           </div>
@@ -26,17 +26,21 @@
         <main>
           <header>
             <div class="container text-even-bigger wrap-2x flex align-items-center flex-wrap">
-              <div class="new-task center">
-                <input class="g-100 wrap-1x text-bigger text-center" id="new-task-field" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task" placeholder="What will you do next?" type="text">
+              <div class="new-task center" ng-if="!editing_task">
+                <input class="g-100 wrap-1x text-bigger text-center" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task" placeholder="What will you do next?" type="text">
                 <a class="add block text-center wrap-1x true-white text-blue" ng-click="add_new_task(new_task)">Add to list</a>
+              </div>
+              <div class="editing-task center" ng-if="editing_task">
+                <input class="g-100 wrap-1x text-bigger text-center" ng-keydown="keypressed_on_edit_task($event)" ng-model="editing_task.description" placeholder="Forgot something?" type="text">
+                <a class="add block text-center wrap-1x true-white text-blue" ng-click="update_task()">Update task</a>
               </div>
             </div>
           </header>
           <section class="flex flex-wrap" ng-if="get_tasks(tasks, false).length">
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white" ng-repeat="task in get_tasks(tasks, false) track by task.id">
+            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white" ng-class="{'is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id">
               <p class="m0">
                 <i class="fa fa-square-o icon-spacer-right text-grey" ng-click="complete_task(task)"></i>
-                {{ task.description }}
+                <span ng-click="edit_task(task)">{{ task.description }}</span>
                 <a class="remove text-red" ng-click="remove_task(task)">Remove</a>
               </p>
             </div>
@@ -77,6 +81,9 @@
               </p>
             </div>
           </section>
+          <footer>
+            <p class="wrap-2x text-grey w400 text-center">Check this project at <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>!</p>
+          </footer>
         </aside>
       </div>
     </div>

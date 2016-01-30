@@ -9,7 +9,7 @@
 		%meta{:name => "Author", :content => "Pedro Pinto"}
 
 		-# TITLE
-		%title LocalList
+		%title LocalList — A simple todo list hosted on local storage
 
 		-# CSS
 		%link{:href => "/assets/style.css", :rel => "stylesheet"}
@@ -20,59 +20,78 @@
 				.wrap-3x.text-center.text-bigger.g-100
 					%h1.m0.w700 Welcome to LocalList!
 					%h2.m0.w400 A todo list that gets saved to the local storage of your browser.
-					%p You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>.
+					%p.text-grey You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a> if you wish.
 
 					.wrap-2x.get-started
 						%a.wrap-1x.true-white.text-blue{"ng-click" => "get_started()"} Get started!
 
 		.flex.align-items-stretch
+			-# LEFT PANEL
 			.left-panel.white
 				%main
+					-# HEADER / INPUT FIELD
 					%header
 						.container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
-							.new-task.center
-								%input#new-task-field.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "What will you do next?", "ng-model" => "new_task", "ng-keydown" => "keypressed_on_new_task($event, new_task)" }
+							-# NEW TASK
+							.new-task.center{"ng-if" => "!editing_task"}
+								%input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "What will you do next?", "ng-model" => "new_task", "ng-keydown" => "keypressed_on_new_task($event, new_task)" }
 								%a.add.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "add_new_task(new_task)"} Add to list
+							
+							-# EDITING TASK
+							.editing-task.center{"ng-if" => "editing_task"}
+								%input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "Forgot something?", "ng-model" => "editing_task.description", "ng-keydown" => "keypressed_on_edit_task($event)" }
+								%a.add.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "update_task()"} Update task
 
+					-# TASKS LOOP
 					%section.flex.flex-wrap{"ng-if" => "get_tasks(tasks, false).length"}
-						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by task.id"}
+						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by task.id", "ng-class" => "{'is-editing': is_editing_task(task)}"}
 							%p.m0
 								%i.fa.fa-square-o.icon-spacer-right.text-grey{"ng-click" => "complete_task(task)"}
-								{{ task.description }}
+								%span{"ng-click" => "edit_task(task)"} {{ task.description }}
 								%a.remove.text-red{"ng-click" => "remove_task(task)"} Remove
 
+					-# NO TASKS TO DO MESSAGE
 					%section{"ng-if" => "!get_tasks(tasks, false).length && get_tasks(tasks, true).length"}
 						.wrap-3x.text-center.text-even-bigger
 							%h1.m0.w700 You are the best!
 							%h2.m0.w400 Enjoy the fresh air outside.
 
+					-# NO TASKS AT ALL MESSAGE
 					%section{"ng-if" => "!get_tasks(tasks, false).length && !get_tasks(tasks, true).length"}
 						.wrap-3x.text-center.text-even-bigger
 							%h1.m0.w700 Need help?
 							%h2.m0.w400 Type something in the input field above and press enter.
 
+			-# RIGHT PANEL
 			.right-panel.white
 				%aside
+					-# REGULAR X TASKS DONE MESSAGE
 					%header.wrap-2x.true-white{"ng-if" => "get_tasks(tasks, true).length"}
 						%h1.m0.w700 Congrats!
 						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks.
 
+					-# MOTIVATOR MESSAGE
 					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && get_tasks(tasks, false).length"}
 						%h1.m0.w700 C'mon, you can do it!
 						%h2.m0.w400 You have {{ get_tasks(tasks, false).length }} tasks to accomplish.
 
+					-# NO TASKS AT ALL MESSAGE
 					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && !get_tasks(tasks, false).length"}
 						%h1.m0.w700 Still nothing...
 						%h2.m0.w400 Add some tasks on the left.
 
+					-# COMPLETED TASKS LOOP
 					%section{"ng-if" => "get_tasks(tasks, true).length"}
 						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate", "ng-animate" => "'task'"}
 							%p.m0.text-grey
 								%i.fa.fa-check-square-o.icon-spacer-right
 								{{ task.description }}
 
+					-# FOOTER
+					%footer
+						%p.wrap-2x.text-grey.w400.text-center Check this project at <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>!
+
 		-# JAVASCRIPTS
-		-#%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
 		%script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"}
 		%script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"}
 		%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.2/angular-local-storage.min.js"}

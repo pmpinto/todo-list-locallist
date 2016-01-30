@@ -24,7 +24,6 @@
 .text-center { text-align: center; }
 
 .text-sans { font-family: "Roboto Condensed", sans-serif; }
-//.text-condensed { font-family: "Roboto Condensed", sans-serif; }
 
 .icon-spacer-right { margin-right: 0.4em; }
 
@@ -42,7 +41,6 @@
 .blue { background-color: @blue; }
 
 .g-30 { width: 30%; }
-.g-50 { width: 50%; }
 .g-70 { width: 70%; }
 .g-80 { width: 80%; }
 .g-100 { width: 100%; }
@@ -74,7 +72,19 @@ body {
 	* {
 		box-sizing: border-box;
 	}
+	.flex {
+		.flex-wrap;
+	}
+	p {
+		a {
+			text-decoration: none;
+			&:hover{
+				border-bottom: 1px solid fadeout(@blue, 50%);
+			}
+		}
+	}
 }
+
 
 
 
@@ -89,14 +99,6 @@ body {
 	.flex {
 		height: 100vh;
 		background-color: fadeout(@white, 8%);
-	}
-	p {
-		a {
-			text-decoration: none;
-			&:hover{
-				border-bottom: 1px solid fadeout(@blue, 50%);
-			}
-		}
 	}
 	.get-started {
 		a {
@@ -119,7 +121,7 @@ body {
 
 
 
-// ### MAIN ####################################################################
+// ### MAIN / LEFT PANEL #######################################################
 
 body {
 	.left-panel {
@@ -130,7 +132,7 @@ body {
 				background-color: fadeout(@black, 65%);
 				.container {
 					height: 40vh;
-					.new-task {
+					.new-task, .editing-task {
 						input {
 							border: none;
 							outline: none;
@@ -163,6 +165,13 @@ body {
 					transform-origin: center left;
 					p {
 						line-height: 1.5em;
+						span {
+							cursor: pointer;
+							&:hover{
+								.text-blue;
+								border-bottom: 1px solid fadeout(@blue, 50%);
+							}
+						}
 						a.remove {
 							opacity: 0;
 							margin-left: 0.5em;
@@ -173,10 +182,13 @@ body {
 							}
 						}
 					}
+					&.is-editing {
+						background-color: lighten(@blue, 25%);
+						.text-white;
+					}
 					&:hover{
 						.transition(all);
 						box-shadow: 0 15px 60px rgba(0,0,0,0.15);
-						//border: 1px solid rgba(0,0,0,0.06);
 						transform: scale(1.1);
 						z-index: 10;
 						a.remove {
@@ -206,9 +218,6 @@ body {
 // ### RIGHT PANEL #############################################################
 
 body {
-	.flex {
-		.flex-wrap;
-	}
 	.right-panel {
 		.g-100;
 		border-top: 1px solid fadeout(@black, 80%);
@@ -253,66 +262,48 @@ body {
 
 // ### MEDIA QUERIES ###########################################################
 
-// XS
+// SMALL SCREENS
 @media (max-width: 767px) {
 	.flex-basis { flex-basis: 100%; }
 	body {
 		.text-smaller;
 		main {
 			header {
-				.container {
-					height: 30vh;
-				}
-				.new-task {
-					.g-100;
-				}
+				.container { height: 30vh; }
+				.new-task, .editing-task { .g-100; }
 			}
 			section {
 				.wrap-1x { padding: 0em; }
 				.wrap-2x { padding: 1.5em; }
-				.task {
-					//border-bottom: 1px solid fadeout(@black, 80%);
-					margin-bottom: 0.1em;
-				}
+				.task { margin-bottom: 0.1em; }
 			}
 		}
 	}
 }
 
-// MD
+// MEDIUM SCREENS
 @media (min-width: 768px) and (max-width: 1399px) {
 	body {
-		.flex {
-			.flex-wrap;
-		}
 		header {
-			.new-task {
-				.g-80;
-			}
+			.new-task, .editing-task { .g-80; }
 		}
 	}
 }
 
-// LG
+// LARGE SCREENS
 @media (min-width: 1400px) {
 	body {
 		header {
-			.new-task {
-				.g-70;
-			}
+			.new-task, .editing-task { .g-70; }
 		}
-		.left-panel {
-			.g-70;
-		}
+		.left-panel { .g-70; }
 		.right-panel {
 			.g-30;
 			position: fixed;
 			height: 100vh;
 			overflow: scroll;
 			border-left: 1px solid fadeout(@black, 80%);
-			.task {
-				border-bottom: 1px solid fadeout(@black, 80%);
-			}
+			.task { border-bottom: 1px solid fadeout(@black, 80%); }
 		}
 	}
 }
