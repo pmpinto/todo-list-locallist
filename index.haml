@@ -35,11 +35,29 @@
 								{{ task.description }}
 								%a.remove.text-red{"ng-click" => "remove_task(task)"} Remove
 
+					%section{"ng-if" => "!get_tasks(tasks, false).length && get_tasks(tasks, true).length"}
+						.wrap-3x.text-center.text-even-bigger
+							%h1.m0.w700 You are the best!
+							%h2.m0.w400 Enjoy the fresh air outside.
+
+					%section{"ng-if" => "!get_tasks(tasks, false).length && !get_tasks(tasks, true).length"}
+						.wrap-3x.text-center.text-even-bigger
+							%h1.m0.w700 Need help?
+							%h2.m0.w400 Type something in the input field above and press enter.
+
 			.right-panel.white
 				%aside
-					%header.wrap-2x.true-white
-						%h1.m0.w700 Congrats
-						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks
+					%header.wrap-2x.true-white{"ng-if" => "get_tasks(tasks, true).length"}
+						%h1.m0.w700 Congrats!
+						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks.
+
+					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && get_tasks(tasks, false).length"}
+						%h1.m0.w700 C'mon, you can do it!
+						%h2.m0.w400 You have {{ get_tasks(tasks, false).length }} tasks to accomplish.
+
+					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && !get_tasks(tasks, false).length"}
+						%h1.m0.w700 Still nothing...
+						%h2.m0.w400 Add some tasks on the left.
 
 					%section{"ng-if" => "get_tasks(tasks, true).length"}
 						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' : reverse track by $index"}

@@ -31,13 +31,33 @@
               </p>
             </div>
           </section>
+          <section ng-if="!get_tasks(tasks, false).length &amp;&amp; get_tasks(tasks, true).length">
+            <div class="wrap-3x text-center text-even-bigger">
+              <h1 class="m0 w700">You are the best!</h1>
+              <h2 class="m0 w400">Enjoy the fresh air outside.</h2>
+            </div>
+          </section>
+          <section ng-if="!get_tasks(tasks, false).length &amp;&amp; !get_tasks(tasks, true).length">
+            <div class="wrap-3x text-center text-even-bigger">
+              <h1 class="m0 w700">Need help?</h1>
+              <h2 class="m0 w400">Type something in the input field above and press enter.</h2>
+            </div>
+          </section>
         </main>
       </div>
       <div class="right-panel white">
         <aside>
-          <header class="wrap-2x true-white">
-            <h1 class="m0 w700">Congrats</h1>
-            <h2 class="m0 w400">You've accomplished {{ get_tasks(tasks, true).length }} tasks</h2>
+          <header class="wrap-2x true-white" ng-if="get_tasks(tasks, true).length">
+            <h1 class="m0 w700">Congrats!</h1>
+            <h2 class="m0 w400">You've accomplished {{ get_tasks(tasks, true).length }} tasks.</h2>
+          </header>
+          <header class="wrap-2x true-white" ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length">
+            <h1 class="m0 w700">C'mon, you can do it!</h1>
+            <h2 class="m0 w400">You have {{ get_tasks(tasks, false).length }} tasks to accomplish.</h2>
+          </header>
+          <header class="wrap-2x true-white" ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length">
+            <h1 class="m0 w700">Still nothing...</h1>
+            <h2 class="m0 w400">Add some tasks on the left.</h2>
           </header>
           <section ng-if="get_tasks(tasks, true).length">
             <div class="task wrap-2x text-bigger" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' : reverse track by $index">
