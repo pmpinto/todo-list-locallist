@@ -156,11 +156,15 @@ body main section .task p a.remove:hover {
 body main section .task:hover a.remove {
   opacity: 1;
 }
+body .flex {
+  flex-wrap: wrap;
+}
+body .left-panel {
+  width: 100%;
+}
 body .right-panel {
-  position: fixed;
-  height: 100vh;
-  overflow: scroll;
-  border-left: 1px solid rgba(44, 62, 80, 0.19999999999999996);
+  width: 100%;
+  border-top: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
 body .right-panel header {
   border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
@@ -187,16 +191,13 @@ body .right-panel header {
   body main section .task {
     margin-bottom: 0.1em;
   }
-  body .right-panel {
-    display: none;
-  }
 }
 @media (min-width: 768px) and (max-width: 1399px) {
+  body .flex {
+    flex-wrap: wrap;
+  }
   body header .new-task {
     width: 80%;
-  }
-  body .right-panel {
-    display: none;
   }
 }
 @media (min-width: 1400px) {
@@ -208,6 +209,10 @@ body .right-panel header {
   }
   body .right-panel {
     width: 30%;
+    position: fixed;
+    height: 100vh;
+    overflow: scroll;
+    border-left: 1px solid rgba(44, 62, 80, 0.19999999999999996);
   }
   body .right-panel .task {
     border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);

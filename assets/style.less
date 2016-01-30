@@ -126,11 +126,15 @@ body {
 // ### RIGHT PANEL #############################################################
 
 body {
+	.flex {
+		.flex-wrap;
+	}
+	.left-panel {
+		.g-100;
+	}
 	.right-panel {
-		position: fixed;
-		height: 100vh;
-		overflow: scroll;
-		border-left: 1px solid fadeout(@black, 80%);
+		.g-100;
+		border-top: 1px solid fadeout(@black, 80%);
 		header {
 			border-bottom: 1px solid fadeout(@black, 80%);
 		}
@@ -164,22 +168,19 @@ body {
 				}
 			}
 		}
-		.right-panel {
-			display: none;
-		}
 	}
 }
 
 // MD
 @media (min-width: 768px) and (max-width: 1399px) {
 	body {
+		.flex {
+			.flex-wrap;
+		}
 		header {
 			.new-task {
 				.g-80;
 			}
-		}
-		.right-panel {
-			display: none;
 		}
 	}
 }
@@ -197,6 +198,10 @@ body {
 		}
 		.right-panel {
 			.g-30;
+			position: fixed;
+			height: 100vh;
+			overflow: scroll;
+			border-left: 1px solid fadeout(@black, 80%);
 			.task {
 				border-bottom: 1px solid fadeout(@black, 80%);
 			}
