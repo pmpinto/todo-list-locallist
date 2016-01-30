@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="LocalList">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -8,7 +8,7 @@
     <title>LocalList</title>
     <link href="/assets/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-controller="TasksController">
     <div class="flex align-items-stretch">
       <div class="left-panel white">
         <main>
@@ -209,5 +209,7 @@
         </aside>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="/assets/scripts.min.js"></script>
   </body>
 </html>

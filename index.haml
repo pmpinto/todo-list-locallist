@@ -1,5 +1,5 @@
 !!!
-%html{ lang: "en" }
+%html{ lang: "en", "ng-app" => "LocalList" }
 	%head
 
 		-# META
@@ -14,11 +14,7 @@
 		-# CSS
 		%link{:href => "/assets/style.css", :rel => "stylesheet"}
 
-		-# JAVASCRIPT
-		-#%script{:src => "/assets/scripts.js"}
-
-
-	%body
+	%body{"ng-controller" => "TasksController"}
 		.flex.align-items-stretch
 			.left-panel.white
 				%main
@@ -53,3 +49,8 @@
 								%p.m0.text-grey
 									%i.fa.fa-check-square-o.icon-spacer-right
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+		-# JAVASCRIPTS
+		-#%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+		%script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"}
+		%script{:src => "/assets/scripts.min.js"}
