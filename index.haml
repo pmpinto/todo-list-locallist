@@ -31,9 +31,9 @@
 					%section.flex.flex-wrap{"ng-if" => "get_tasks(tasks, false).length"}
 						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by $index"}
 							%p.m0
-								%i.fa.fa-square-o.icon-spacer-right.text-grey
+								%i.fa.fa-square-o.icon-spacer-right.text-grey{"ng-click" => "complete_task(task)"}
 								{{ task.description }}
-								%a.remove.text-red Remove
+								%a.remove.text-red{"ng-click" => "remove_task(task)"} Remove
 
 			.right-panel.white
 				%aside
@@ -42,7 +42,7 @@
 						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks
 
 					%section{"ng-if" => "get_tasks(tasks, true).length"}
-						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) track by $index"}
+						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' : reverse track by $index"}
 							%p.m0.text-grey
 								%i.fa.fa-check-square-o.icon-spacer-right
 								{{ task.description }}
