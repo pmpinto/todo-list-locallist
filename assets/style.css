@@ -191,8 +191,8 @@ body .left-panel main header .container .new-task a.add:hover {
   transition: all 150ms ease;
 }
 body .left-panel main section .task {
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
   z-index: 1;
   transform-origin: center left;
@@ -222,8 +222,16 @@ body .left-panel main section .task:hover a.remove {
 body .left-panel main section .task.ng-enter {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+}
+body .left-panel main section .task.ng-leave-active {
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+  transform: scaleY(0.1);
+  transform-origin: center center;
+  opacity: 0;
 }
 body .flex {
   flex-wrap: wrap;
@@ -250,6 +258,23 @@ body .right-panel section .task:hover {
   transition: background-color 150ms ease;
 }
 body .right-panel section .task:hover p {
+  color: #2c3e50;
+  -webkit-transition: color 150ms ease;
+  transition: color 150ms ease;
+}
+body .right-panel section .task.ng-enter {
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+  transform: scaleY(0);
+  transform-origin: top left;
+}
+body .right-panel section .task.ng-enter-active {
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+  background-color: #fff;
+  transform: scaleY(1);
+}
+body .right-panel section .task.ng-enter-active p {
   color: #2c3e50;
   -webkit-transition: color 150ms ease;
   transition: color 150ms ease;

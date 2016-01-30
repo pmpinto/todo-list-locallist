@@ -16,15 +16,15 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 	$scope.old_visitor = localStorageService.get("oldVisitor");
 	
 	$scope.tasks = localStorageService.get("tasks") || [
-		{ description: "Add a new task.", completed: false },
-		{ description: "Here's what a completed task looks like.", completed: true, completedDate: 1454151978339 },
-		{ description: "Add another task.", completed: false },
-		{ description: "Ok, add just one more for the fun of it.", completed: false },
-		{ description: "Don't forget to click the checkbox as soon as you complete the previous tasks.", completed: false },
-		{ description: "Now refresh the page, go ahead! I'll be here when you come back.", completed: false },
-		{ description: "Heck! You can even quit the browser and shutdown your computer!", completed: false },
-		{ description: "Don't forget to resize the window as well.", completed: false },
-		{ description: "Make some introductory tasks.", completed: true, completedDate: 1454151990466 },
+		{ id: 1, description: "Add a new task.", completed: false },
+		{ id: 2, description: "Here's what a completed task looks like.", completed: true, completedDate: 1454151978339 },
+		{ id: 3, description: "Add another task.", completed: false },
+		{ id: 4, description: "Ok, add just one more for the fun of it.", completed: false },
+		{ id: 5, description: "Don't forget to click the checkbox as soon as you complete the previous tasks.", completed: false },
+		{ id: 6, description: "Now refresh the page, go ahead! I'll be here when you come back.", completed: false },
+		{ id: 7, description: "Heck! You can even quit the browser and shutdown your computer!", completed: false },
+		{ id: 8, description: "Don't forget to resize the window as well.", completed: false },
+		{ id: 9, description: "Make some introductory tasks.", completed: true, completedDate: 1454151990466 },
 	];
 
 
@@ -45,7 +45,8 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 		if (task) {
 			$scope.tasks.push({
 				description: task,
-				completed: false
+				completed: false,
+				id: new Date().getTime()
 			});
 
 			$scope.new_task = null;

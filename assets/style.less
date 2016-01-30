@@ -157,7 +157,7 @@ body {
 			}
 			section {
 				.task {
-					.transition(all, 1s, ease);
+					.transition(all, 500ms, ease);
 					box-shadow: 0 0px 0px rgba(0,0,0,0.5);
 					z-index: 1;
 					transform-origin: center left;
@@ -184,9 +184,16 @@ body {
 						}
 					}
 					&.ng-enter {
-						.transition(all);
-						transform: scale(1.05);
+						.transition(all, 150ms);
+						transform: scale(1.1);
 						box-shadow: 0 15px 60px rgba(0,0,0,0.15);
+						opacity: 0;
+					}
+					&.ng-leave-active {
+						.transition(all);
+						transform: scaleY(0.1);
+						transform-origin: center center;
+						opacity: 0;
 					}
 				}
 			}
@@ -218,6 +225,20 @@ body {
 				&:hover{
 					.true-white;
 					.transition(background-color);
+					p {
+						.text-black;
+						.transition(color);
+					}
+				}
+				&.ng-enter {
+					.transition(all, 250ms);
+					transform: scaleY(0);
+					transform-origin: top left;
+				}
+				&.ng-enter-active {
+					.transition(all, 250ms);
+					.true-white;
+					transform: scaleY(1);
 					p {
 						.text-black;
 						.transition(color);
