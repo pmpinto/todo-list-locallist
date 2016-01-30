@@ -6,7 +6,7 @@ var app = angular.module("LocalList", []);
 
 // ### MAIN CONTROLLER #########################################################
 
-app.controller("TasksController", ["$scope", function($scope){
+app.controller("TasksController", ["$scope", "$filter", function($scope, $filter){
 	
 	$scope.tasks = [
 		{ description: "Add responsiveness to your layout", completed: true },
@@ -19,5 +19,15 @@ app.controller("TasksController", ["$scope", function($scope){
 		{ description: "Add keyboard shortcuts if you have time", completed: false },
 		{ description: "Dedicate some time polishing the layout and animating", completed: false }
 	];
+
+
+
+	// ### GET TASKS BY COMPLETED STATE ########################################
+
+	$scope.get_tasks = function(tasks, completed) {
+		return $filter("filter")(tasks, { completed: completed });
+	};
+
+
 
 }]);

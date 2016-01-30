@@ -28,27 +28,24 @@
 								%a.add.block.text-center.wrap-1x.white.text-blue{href: "#"}
 									Add to list
 
-					%section.flex.flex-wrap
-						- 14.times do
-							.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white
-								%p.m0
-									%i.fa.fa-square-o.icon-spacer-right.text-grey
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua.
-									%a.remove.text-red Remove
+					%section.flex.flex-wrap{"ng-if" => "get_tasks(tasks, false).length"}
+						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by $index"}
+							%p.m0
+								%i.fa.fa-square-o.icon-spacer-right.text-grey
+								{{ task.description }}
+								%a.remove.text-red Remove
 
 			.right-panel.white
 				%aside
 					%header.wrap-2x.true-white
 						%h1.m0.w700 Congrats
-						%h2.m0.w400 You've accomplished 5 tasks
+						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks
 
-					%section
-						- 10.times do
-							.task.wrap-2x.text-bigger
-								%p.m0.text-grey
-									%i.fa.fa-check-square-o.icon-spacer-right
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					%section{"ng-if" => "get_tasks(tasks, true).length"}
+						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) track by $index"}
+							%p.m0.text-grey
+								%i.fa.fa-check-square-o.icon-spacer-right
+								{{ task.description }}
 
 		-# JAVASCRIPTS
 		-#%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}

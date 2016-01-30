@@ -22,116 +22,11 @@
               </div>
             </div>
           </header>
-          <section class="flex flex-wrap">
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
+          <section class="flex flex-wrap" ng-if="get_tasks(tasks, false).length">
+            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white" ng-repeat="task in get_tasks(tasks, false) track by $index">
               <p class="m0">
                 <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-                <a class="remove text-red">Remove</a>
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white">
-              <p class="m0">
-                <i class="fa fa-square-o icon-spacer-right text-grey"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
+                {{ task.description }}
                 <a class="remove text-red">Remove</a>
               </p>
             </div>
@@ -142,67 +37,13 @@
         <aside>
           <header class="wrap-2x true-white">
             <h1 class="m0 w700">Congrats</h1>
-            <h2 class="m0 w400">You've accomplished 5 tasks</h2>
+            <h2 class="m0 w400">You've accomplished {{ get_tasks(tasks, true).length }} tasks</h2>
           </header>
-          <section>
-            <div class="task wrap-2x text-bigger">
+          <section ng-if="get_tasks(tasks, true).length">
+            <div class="task wrap-2x text-bigger" ng-repeat="task in get_tasks(tasks, true) track by $index">
               <p class="m0 text-grey">
                 <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-            <div class="task wrap-2x text-bigger">
-              <p class="m0 text-grey">
-                <i class="fa fa-check-square-o icon-spacer-right"></i>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                {{ task.description }}
               </p>
             </div>
           </section>
