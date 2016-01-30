@@ -122,66 +122,104 @@ body > .flex {
 body * {
   box-sizing: border-box;
 }
-body main header {
+.welcome {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  opacity: 1;
+  -webkit-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+.welcome .flex {
+  height: 100vh;
+  background-color: rgba(236, 240, 241, 0.92);
+}
+.welcome p a {
+  text-decoration: none;
+}
+.welcome p a:hover {
+  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
+}
+.welcome .get-started a {
+  border-radius: 4px;
+  margin-top: 1em;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+.welcome .get-started a:hover {
+  background-color: #2980b9;
+  color: #ecf0f1;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+}
+.welcome.ng-leave-active {
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
+  opacity: 0;
+}
+body .left-panel {
+  width: 100%;
+}
+body .left-panel main header {
   border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
   background-color: rgba(44, 62, 80, 0.35);
 }
-body main header .container {
+body .left-panel main header .container {
   height: 40vh;
 }
-body main header .container .new-task input {
+body .left-panel main header .container .new-task input {
   border: none;
   outline: none;
   border-bottom: 3px solid #fff;
   background-color: transparent;
   color: #fff;
 }
-body main header .container .new-task input::-webkit-input-placeholder {
+body .left-panel main header .container .new-task input::-webkit-input-placeholder {
   color: rgba(236, 240, 241, 0.75);
 }
-body main header .container .new-task a.add {
+body .left-panel main header .container .new-task a.add {
   border-radius: 4px;
   margin-top: 0.5em;
   text-decoration: none;
   -webkit-transition: all 2s ease;
   transition: all 2s ease;
 }
-body main header .container .new-task a.add:hover {
+body .left-panel main header .container .new-task a.add:hover {
   background-color: #2980b9;
   color: #ecf0f1;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
-body main section .task {
+body .left-panel main section .task {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
   z-index: 1;
   transform-origin: center left;
 }
-body main section .task p {
+body .left-panel main section .task p {
   line-height: 1.5em;
 }
-body main section .task p a.remove {
+body .left-panel main section .task p a.remove {
   opacity: 0;
   margin-left: 0.5em;
   color: #e74c3c;
   font-size: 0.7em;
 }
-body main section .task p a.remove:hover {
+body .left-panel main section .task p a.remove:hover {
   border-bottom: 1px solid rgba(231, 76, 60, 0.5);
 }
-body main section .task:hover {
+body .left-panel main section .task:hover {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
   transform: scale(1.1);
   z-index: 10;
 }
-body main section .task:hover a.remove {
+body .left-panel main section .task:hover a.remove {
   opacity: 1;
 }
-body main section .task.ng-enter {
+body .left-panel main section .task.ng-enter {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
   transform: scale(1.05);
@@ -189,9 +227,6 @@ body main section .task.ng-enter {
 }
 body .flex {
   flex-wrap: wrap;
-}
-body .left-panel {
-  width: 100%;
 }
 body .right-panel {
   width: 100%;

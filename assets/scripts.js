@@ -11,6 +11,9 @@ var app = angular.module("LocalList", ["LocalStorageModule", "ngAnimate"]);
 // ### MAIN CONTROLLER #########################################################
 
 app.controller("TasksController", ["$scope", "$filter", "localStorageService", function($scope, $filter, localStorageService){
+
+	// CONTROLS THE VISIBILITY OF THE WELCOME SCREEN
+	$scope.old_visitor = localStorageService.get("oldVisitor");
 	
 	$scope.tasks = localStorageService.get("tasks") || [
 		{ description: "Add a new task.", completed: false },
@@ -38,12 +41,15 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 
 	$scope.add_new_task = function(task) {
 		//console.log(task);
-		$scope.tasks.push({
-			description: task,
-			completed: false
-		});
 
-		$scope.new_task = null;
+		if (task) {
+			$scope.tasks.push({
+				description: task,
+				completed: false
+			});
+
+			$scope.new_task = null;
+		}
 	};
 
 
@@ -80,7 +86,6 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 	
 	
 
-
 	// ### WATCH FOR CHANGES ON TASKS, SAVE ON LOCALSTORAGE ####################
 
 	$scope.$watch("tasks", function(newObj){
@@ -88,6 +93,15 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 			localStorageService.set("tasks", newObj);
 		}
 	}, true);
+
+
+
+	// ### GET STARTED #########################################################
+	
+	$scope.get_started = function() {
+		localStorageService.set("oldVisitor", true);
+		$scope.old_visitor = true;
+	};
 	
 
 }]);

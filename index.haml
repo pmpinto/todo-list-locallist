@@ -15,6 +15,16 @@
 		%link{:href => "/assets/style.css", :rel => "stylesheet"}
 
 	%body{"ng-controller" => "TasksController"}
+		.welcome.text-even-bigger{"ng-if" => "!old_visitor"}
+			.flex.align-items-center
+				.wrap-3x.text-center.text-bigger.g-100
+					%h1.m0.w700 Welcome to LocalList!
+					%h2.m0.w400 A todo list that gets saved to the local storage of your browser.
+					%p You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>.
+
+					%p.wrap-2x.get-started
+						%a.wrap-1x.true-white.text-blue{"ng-click" => "get_started()"} Get started!
+
 		.flex.align-items-stretch
 			.left-panel.white
 				%main
