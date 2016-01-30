@@ -3,6 +3,7 @@ A simple todo list hosted on local storage.
 This is a short project done to test my habilities to use web technologies. It was made to work with the most recent browsers (Chrome and Safari). Some features may not work all that well on non-tested browsers.
 
 ## [Quick demo?](http://pedropinto.me/locallist/)
+![Screenshot](https://raw.githubusercontent.com/pmpinto/todo-list-locallist/master/screenshot.png)
 
 ### Tecnhologies used
 - HTML
