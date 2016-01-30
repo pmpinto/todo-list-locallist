@@ -25,6 +25,7 @@ This is a short project done to test my habilities to use web technologies. It w
 - Completing tasks
 - Editing tasks
 - Removing tasks
+- Uncompleting tasks (brings them back to the main list)
 - Responsive UI
 
 ---
