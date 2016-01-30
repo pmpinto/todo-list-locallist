@@ -103,6 +103,9 @@
 .flex-grow {
   flex-grow: 1;
 }
+[ng-click] {
+  cursor: pointer;
+}
 body {
   font-family: "Roboto Condensed", sans-serif;
   color: #2c3e50;
@@ -198,7 +201,7 @@ body .right-panel header {
 }
 @media (min-width: 1400px) {
   body header .new-task {
-    width: 50%;
+    width: 70%;
   }
   body .left-panel {
     width: 70%;

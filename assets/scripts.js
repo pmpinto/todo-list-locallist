@@ -30,4 +30,31 @@ app.controller("TasksController", ["$scope", "$filter", function($scope, $filter
 
 
 
+	// ### ADD NEW TASK ########################################################
+
+	$scope.add_new_task = function(task) {
+		//console.log(task);
+		$scope.tasks.push({
+			description: task,
+			completed: false
+		});
+
+		$scope.new_task = null;
+	};
+
+
+
+	// ### KEYPRESS EVENT ON TEXT INPUT ########################################
+	
+	$scope.keypressed_on_new_task = function(event, new_task) {
+		//console.log(event);
+		
+		switch (event.keyCode) {
+			case 13: // ENTER
+				$scope.add_new_task(new_task);
+		    break;
+		}
+	};
+	
+
 }]);
