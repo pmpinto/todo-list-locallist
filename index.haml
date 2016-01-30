@@ -25,8 +25,7 @@
 
 							.new-task.center
 								%input#new-task-field.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "What will you do next?", "ng-model" => "new_task", "ng-keydown" => "keypressed_on_new_task($event, new_task)" }
-								%a.add.block.text-center.wrap-1x.white.text-blue{"ng-click" => "add_new_task(new_task)"}
-									Add to list
+								%a.add.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "add_new_task(new_task)"} Add to list
 
 					%section.flex.flex-wrap{"ng-if" => "get_tasks(tasks, false).length"}
 						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by $index"}
@@ -68,5 +67,6 @@
 		-# JAVASCRIPTS
 		-#%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
 		%script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"}
+		%script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"}
 		%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.2/angular-local-storage.min.js"}
 		%script{:src => "/assets/scripts.min.js"}

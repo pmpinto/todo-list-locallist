@@ -1,6 +1,7 @@
 // ### START NG APP ############################################################
 
-var app = angular.module("LocalList", ["LocalStorageModule"]);
+var app = angular.module("LocalList", ["LocalStorageModule", "ngAnimate"]);
+	
 	app.config(["localStorageServiceProvider", function(localStorageServiceProvider){
 		localStorageServiceProvider.setPrefix("LocalList");
 	}]);

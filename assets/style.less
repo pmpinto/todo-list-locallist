@@ -14,6 +14,7 @@
 .text-grey { color: fadeout(@black, 50%); }
 .text-red { color: @red; }
 .text-blue { color: @blue; }
+.text-white { color: @white; }
 
 .text-even-bigger { font-size: 1.6em; }
 .text-bigger { font-size: 1.3em; }
@@ -38,6 +39,7 @@
 .black { background-color: @black; }
 .true-white { background-color: #fff; }
 .red { background-color: @red; }
+.blue { background-color: @blue; }
 
 .g-30 { width: 30%; }
 .g-50 { width: 50%; }
@@ -57,6 +59,12 @@
 
 [ng-click] { cursor: pointer; }
 
+.transition(@property: all, @duration: 150ms, @timing: ease){
+	-webkit-transition: @property @duration @timing;
+	transition: @property @duration @timing;
+}
+
+
 body {
 	> .flex {
 		min-height: 100vh;
@@ -74,14 +82,14 @@ body {
 	main {
 		header {
 			border-bottom: 1px solid fadeout(@black, 80%);
-			background-color: fadeout(@black, 50%);
+			background-color: fadeout(@black, 65%);
 			.container {
 				height: 40vh;
 				.new-task {
 					input {
 						border: none;
 						outline: none;
-						border-bottom: 3px solid @white;
+						border-bottom: 3px solid #fff;
 						background-color: transparent;
 						color: #fff;
 						&::-webkit-input-placeholder {
@@ -92,13 +100,22 @@ body {
 						border-radius: 4px;
 						margin-top: 0.5em;
 						text-decoration: none;
+						.transition(all, 2s, ease);
+						&:hover{
+							.blue;
+							.text-white;
+							.transition(all);
+						}
 					}
 				}
 			}
 		}
 		section {
 			.task {
-				border-radius: 4px;
+				.transition(all, 1s, ease);
+				box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+				z-index: 1;
+				transform-origin: center left;
 				p {
 					line-height: 1.5em;
 					a.remove {
@@ -112,9 +129,19 @@ body {
 					}
 				}
 				&:hover{
+					.transition(all);
+					box-shadow: 0 15px 60px rgba(0,0,0,0.15);
+					//border: 1px solid rgba(0,0,0,0.06);
+					transform: scale(1.1);
+					z-index: 10;
 					a.remove {
 						opacity: 1;
 					}
+				}
+				&.ng-enter {
+					.transition(all);
+					transform: scale(1.05);
+					box-shadow: 0 15px 60px rgba(0,0,0,0.15);
 				}
 			}
 		}
@@ -137,6 +164,23 @@ body {
 		border-top: 1px solid fadeout(@black, 80%);
 		header {
 			border-bottom: 1px solid fadeout(@black, 80%);
+		}
+		section {
+			.task {
+				cursor: default;
+				.transition(background-color, 2s, ease);
+				p {
+					.transition(color, 2s, ease);
+				}
+				&:hover{
+					.true-white;
+					.transition(background-color);
+					p {
+						.text-black;
+						.transition(color);
+					}
+				}
+			}
 		}
 	}
 }

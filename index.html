@@ -16,9 +16,7 @@
             <div class="container text-even-bigger wrap-2x flex align-items-center flex-wrap">
               <div class="new-task center">
                 <input class="g-100 wrap-1x text-bigger text-center" id="new-task-field" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task" placeholder="What will you do next?" type="text">
-                <a class="add block text-center wrap-1x white text-blue" ng-click="add_new_task(new_task)">
-                  Add to list
-                </a>
+                <a class="add block text-center wrap-1x true-white text-blue" ng-click="add_new_task(new_task)">Add to list</a>
               </div>
             </div>
           </header>
@@ -71,6 +69,7 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.2/angular-local-storage.min.js"></script>
     <script src="/assets/scripts.min.js"></script>
   </body>
