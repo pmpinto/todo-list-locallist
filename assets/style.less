@@ -139,6 +139,11 @@ body {
 							border-bottom: 3px solid #fff;
 							background-color: transparent;
 							color: #fff;
+							.transition(border-color);
+							&:hover, &:focus{
+								border-color: @blue;
+								.transition(border-color);
+							}
 							&::-webkit-input-placeholder {
 								color: fadeout(@white, 25%);
 							}

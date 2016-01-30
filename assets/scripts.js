@@ -44,12 +44,12 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 
 		if (task) {
 			$scope.tasks.push({
-				description: task,
+				description: task.description,
 				completed: false,
 				id: new Date().getTime()
 			});
 
-			$scope.new_task = null;
+			task.description = null;
 		}
 	};
 
@@ -142,7 +142,14 @@ app.controller("TasksController", ["$scope", "$filter", "localStorageService", f
 		}
 	};
 
+
 	
+	// ### UNCOMPLETE TASK #####################################################
+
+	$scope.uncomplete_task = function(task) {
+		task.completed = false;
+		task.completedDate = null;
+	};	
 	
 
 }]);
