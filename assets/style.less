@@ -258,6 +258,12 @@ body {
 						.transition(color);
 					}
 				}
+				&.ng-leave-active {
+					.transition(all, 250ms);
+					transform: scaleY(0);
+					transform-origin: top left;
+					opacity: 0;
+				}
 			}
 		}
 	}

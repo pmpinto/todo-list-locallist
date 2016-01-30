@@ -66,7 +66,7 @@
 								%a.add.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "update_task()"} Update task
 
 					-# TASKS LOOP
-					%section.flex.flex-wrap{"ng-if" => "get_tasks(tasks, false).length"}
+					%section.flex.flex-wrap
 						.task.wrap-2x.text-bigger.flex-basis.flex-grow.true-white{"ng-repeat" => "task in get_tasks(tasks, false) track by task.id", "ng-class" => "{'is-editing': is_editing_task(task)}"}
 							%p.m0
 								%i.fa.fa-square-o.icon-spacer-right.text-grey{"ng-click" => "complete_task(task)"}
@@ -104,7 +104,7 @@
 						%h2.m0.w400 Add some tasks on the left.
 
 					-# COMPLETED TASKS LOOP
-					%section{"ng-if" => "get_tasks(tasks, true).length"}
+					%section
 						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate", "ng-animate" => "'task'"}
 							%p.m0.text-grey
 								%i.fa.fa-check-square-o.icon-spacer-right{"ng-click" => "uncomplete_task(task)"}

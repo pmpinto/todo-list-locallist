@@ -57,7 +57,7 @@
               </div>
             </div>
           </header>
-          <section class="flex flex-wrap" ng-if="get_tasks(tasks, false).length">
+          <section class="flex flex-wrap">
             <div class="task wrap-2x text-bigger flex-basis flex-grow true-white" ng-class="{'is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id">
               <p class="m0">
                 <i class="fa fa-square-o icon-spacer-right text-grey" ng-click="complete_task(task)"></i>
@@ -94,7 +94,7 @@
             <h1 class="m0 w700">Still nothing...</h1>
             <h2 class="m0 w400">Add some tasks on the left.</h2>
           </header>
-          <section ng-if="get_tasks(tasks, true).length">
+          <section>
             <div class="task wrap-2x text-bigger" ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate">
               <p class="m0 text-grey">
                 <i class="fa fa-check-square-o icon-spacer-right" ng-click="uncomplete_task(task)"></i>

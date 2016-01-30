@@ -301,6 +301,13 @@ body .right-panel section .task.ng-enter-active p {
   -webkit-transition: color 150ms ease;
   transition: color 150ms ease;
 }
+body .right-panel section .task.ng-leave-active {
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+  transform: scaleY(0);
+  transform-origin: top left;
+  opacity: 0;
+}
 @media (max-width: 767px) {
   .flex-basis {
     flex-basis: 100%;
