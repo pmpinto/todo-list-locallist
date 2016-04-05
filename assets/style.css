@@ -128,34 +128,35 @@ body p a {
 body p a:hover {
   border-bottom: 1px solid rgba(41, 128, 185, 0.5);
 }
-.welcome {
+.welcome-screen {
+  -webkit-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+  opacity: 1;
   position: fixed;
   width: 100%;
   z-index: 20;
-  opacity: 1;
-  -webkit-transition: opacity 2s ease;
-  transition: opacity 2s ease;
 }
-.welcome .flex {
-  height: 100vh;
+.welcome-screen.ng-leave-active {
+  -webkit-transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
+  opacity: 0;
+}
+.welcome-screen__wrapper {
+  display: flex;
   background-color: rgba(236, 240, 241, 0.92);
+  height: 100vh;
 }
-.welcome .get-started a {
-  border-radius: 4px;
-  margin-top: 1em;
+.welcome-screen__link {
   -webkit-transition: all 2s ease;
   transition: all 2s ease;
+  border-radius: 4px;
+  margin-top: 1em;
 }
-.welcome .get-started a:hover {
+.welcome-screen__link:hover {
   background-color: #2980b9;
   color: #ecf0f1;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-}
-.welcome.ng-leave-active {
-  -webkit-transition: opacity 250ms ease;
-  transition: opacity 250ms ease;
-  opacity: 0;
 }
 body .left-panel {
   width: 100%;
@@ -308,7 +309,7 @@ body .right-panel section .task.ng-leave-active {
   transform-origin: top left;
   opacity: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 47.938em) {
   .flex-basis {
     flex-basis: 100%;
   }
@@ -332,13 +333,13 @@ body .right-panel section .task.ng-leave-active {
     margin-bottom: 0.1em;
   }
 }
-@media (min-width: 768px) and (max-width: 1399px) {
+@media (min-width: 48em) and (max-width: 87.438em) {
   body header .new-task,
   body header .editing-task {
     width: 80%;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 87.5em) {
   body header .new-task,
   body header .editing-task {
     width: 70%;
