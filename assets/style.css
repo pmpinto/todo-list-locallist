@@ -158,106 +158,97 @@ body p a:hover {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
-body .left-panel {
-  width: 100%;
-}
-body .left-panel main header {
-  border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
+.header {
   background-color: rgba(44, 62, 80, 0.35);
+  border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
-body .left-panel main header .container {
-  height: 40vh;
-}
-body .left-panel main header .container .new-task input,
-body .left-panel main header .container .editing-task input {
-  border: none;
-  outline: none;
-  border-bottom: 3px solid #fff;
+.header__input {
+  -webkit-transition: border-color 150ms ease;
+  transition: border-color 150ms ease;
   background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #fff;
   color: #fff;
+  outline: none;
+}
+.header__input:hover,
+.header__input:focus {
   -webkit-transition: border-color 150ms ease;
   transition: border-color 150ms ease;
-}
-body .left-panel main header .container .new-task input:hover,
-body .left-panel main header .container .editing-task input:hover,
-body .left-panel main header .container .new-task input:focus,
-body .left-panel main header .container .editing-task input:focus {
   border-color: #2980b9;
-  -webkit-transition: border-color 150ms ease;
-  transition: border-color 150ms ease;
 }
-body .left-panel main header .container .new-task input::-webkit-input-placeholder,
-body .left-panel main header .container .editing-task input::-webkit-input-placeholder {
+.header__input::-webkit-input-placeholder {
   color: rgba(236, 240, 241, 0.75);
 }
-body .left-panel main header .container .new-task a.add,
-body .left-panel main header .container .editing-task a.add {
+.header__container {
+  height: 40vh;
+}
+.header__add-button {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
   border-radius: 4px;
   margin-top: 0.5em;
   text-decoration: none;
-  -webkit-transition: all 2s ease;
-  transition: all 2s ease;
 }
-body .left-panel main header .container .new-task a.add:hover,
-body .left-panel main header .container .editing-task a.add:hover {
+.header__add-button:hover {
   background-color: #2980b9;
   color: #ecf0f1;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
-body .left-panel main section .task {
+.task {
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-  z-index: 1;
   transform-origin: center left;
+  z-index: 1;
 }
-body .left-panel main section .task p {
-  line-height: 1.5em;
-}
-body .left-panel main section .task p span {
-  cursor: pointer;
-}
-body .left-panel main section .task p span:hover {
-  color: #2980b9;
-  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
-}
-body .left-panel main section .task p a.remove {
-  opacity: 0;
-  margin-left: 0.5em;
-  color: #e74c3c;
-  font-size: 0.7em;
-}
-body .left-panel main section .task p a.remove:hover {
-  border-bottom: 1px solid rgba(231, 76, 60, 0.5);
-}
-body .left-panel main section .task.is-editing {
-  background-color: #7fbbe3;
-  color: #ecf0f1;
-}
-body .left-panel main section .task:hover {
+.task:hover {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
   transform: scale(1.1);
   z-index: 10;
 }
-body .left-panel main section .task:hover a.remove {
+.task:hover .task__btn-remove {
   opacity: 1;
 }
-body .left-panel main section .task.ng-enter {
+.task.ng-enter {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-  transform: scale(1.1);
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
   opacity: 0;
+  transform: scale(1.1);
 }
-body .left-panel main section .task.ng-leave-active {
+.task.ng-leave-active {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-  transform: scaleY(0.1);
-  transform-origin: center center;
   opacity: 0;
+  transform-origin: center center;
+  transform: scaleY(0.1);
+}
+.task__text-wrapper {
+  line-height: 1.5em;
+}
+.task__title {
+  cursor: pointer;
+}
+.task__title:hover {
+  color: #2980b9;
+  border-bottom: 1px solid rgba(41, 128, 185, 0.5);
+}
+.task__btn-remove {
+  color: #e74c3c;
+  font-size: 0.7em;
+  margin-left: 0.5em;
+  opacity: 0;
+}
+.task__btn-remove:hover {
+  border-bottom: 1px solid rgba(231, 76, 60, 0.5);
+}
+.task--is-editing {
+  background-color: #7fbbe3;
+  color: #ecf0f1;
 }
 body .right-panel {
   width: 100%;

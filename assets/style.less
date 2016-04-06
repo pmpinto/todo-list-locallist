@@ -121,96 +121,100 @@ body {
 
 // ### MAIN / LEFT PANEL #######################################################
 
+.header {
+	background-color: fadeout(@black, 65%);
+	border-bottom: 1px solid fadeout(@black, 80%);
+}
+.header__input {
+	.transition(border-color);
+	background-color: transparent;
+	border: none;
+	border-bottom: 3px solid #fff;
+	color: #fff;
+	outline: none;
+	&:hover, &:focus{
+		.transition(border-color);
+		border-color: @blue;
+	}
+	&::-webkit-input-placeholder {
+		color: fadeout(@white, 25%);
+	}
+}
+.header__container {
+	height: 40vh;
+}
+.header__add-button {
+	.transition(all, 2s, ease);
+	border-radius: 4px;
+	margin-top: 0.5em;
+	text-decoration: none;
+	&:hover{
+		.blue;
+		.text-white;
+		.transition(all);
+	}
+}
+
+
+.task {
+	.transition(all, 500ms, ease);
+	box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+	transform-origin: center left;
+	z-index: 1;
+	&:hover{
+		.transition(all);
+		box-shadow: 0 15px 60px rgba(0,0,0,0.15);
+		transform: scale(1.1);
+		z-index: 10;
+		.task__btn-remove {
+			opacity: 1;
+		}
+	}
+	&.ng-enter {
+		.transition(all, 150ms);
+		box-shadow: 0 15px 60px rgba(0,0,0,0.15);
+		opacity: 0;
+		transform: scale(1.1);
+	}
+	&.ng-leave-active {
+		.transition(all);
+		opacity: 0;
+		transform-origin: center center;
+		transform: scaleY(0.1);
+	}
+}
+.task__text-wrapper {
+	line-height: 1.5em;
+}
+.task__title {
+	cursor: pointer;
+	&:hover{
+		.text-blue;
+		border-bottom: 1px solid fadeout(@blue, 50%);
+	}
+}
+.task__btn-remove {
+	.text-red;
+	.text-smaller;
+	margin-left: 0.5em;
+	opacity: 0;
+	&:hover{
+		border-bottom: 1px solid fadeout(@red, 50%);
+	}
+}
+
+.task--is-editing {
+	background-color: lighten(@blue, 25%);
+	.text-white;
+}
+
+
+
+
 body {
 	.left-panel {
-		.g-100;
 		main {
-			header {
-				border-bottom: 1px solid fadeout(@black, 80%);
-				background-color: fadeout(@black, 65%);
-				.container {
-					height: 40vh;
-					.new-task, .editing-task {
-						input {
-							border: none;
-							outline: none;
-							border-bottom: 3px solid #fff;
-							background-color: transparent;
-							color: #fff;
-							.transition(border-color);
-							&:hover, &:focus{
-								border-color: @blue;
-								.transition(border-color);
-							}
-							&::-webkit-input-placeholder {
-								color: fadeout(@white, 25%);
-							}
-						}
-						a.add {
-							border-radius: 4px;
-							margin-top: 0.5em;
-							text-decoration: none;
-							.transition(all, 2s, ease);
-							&:hover{
-								.blue;
-								.text-white;
-								.transition(all);
-							}
-						}
-					}
-				}
-			}
 			section {
-				.task {
-					.transition(all, 500ms, ease);
-					box-shadow: 0 0px 0px rgba(0,0,0,0.5);
-					z-index: 1;
-					transform-origin: center left;
-					p {
-						line-height: 1.5em;
-						span {
-							cursor: pointer;
-							&:hover{
-								.text-blue;
-								border-bottom: 1px solid fadeout(@blue, 50%);
-							}
-						}
-						a.remove {
-							opacity: 0;
-							margin-left: 0.5em;
-							.text-red;
-							.text-smaller;
-							&:hover{
-								border-bottom: 1px solid fadeout(@red, 50%);
-							}
-						}
-					}
-					&.is-editing {
-						background-color: lighten(@blue, 25%);
-						.text-white;
-					}
-					&:hover{
-						.transition(all);
-						box-shadow: 0 15px 60px rgba(0,0,0,0.15);
-						transform: scale(1.1);
-						z-index: 10;
-						a.remove {
-							opacity: 1;
-						}
-					}
-					&.ng-enter {
-						.transition(all, 150ms);
-						transform: scale(1.1);
-						box-shadow: 0 15px 60px rgba(0,0,0,0.15);
-						opacity: 0;
-					}
-					&.ng-leave-active {
-						.transition(all);
-						transform: scaleY(0.1);
-						transform-origin: center center;
-						opacity: 0;
-					}
-				}
 			}
 		}
 	}
