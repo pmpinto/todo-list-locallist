@@ -80,23 +80,23 @@
           </section>
         </main>
       </div>
-      <div class="right-panel white">
+      <div class="done-tasks white g-100">
         <aside>
-          <header class="wrap-2x true-white" ng-if="get_tasks(tasks, true).length">
+          <header class="wrap-2x true-white done-tasks__header" ng-if="get_tasks(tasks, true).length">
             <h1 class="m0 w700">Congrats!</h1>
             <h2 class="m0 w400">You've accomplished {{ get_tasks(tasks, true).length }} tasks.</h2>
           </header>
-          <header class="wrap-2x true-white" ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length">
+          <header class="wrap-2x true-white done-tasks__header" ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length">
             <h1 class="m0 w700">C'mon, you can do it!</h1>
             <h2 class="m0 w400">You have {{ get_tasks(tasks, false).length }} tasks to accomplish.</h2>
           </header>
-          <header class="wrap-2x true-white" ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length">
+          <header class="wrap-2x true-white done-tasks__header" ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length">
             <h1 class="m0 w700">Still nothing...</h1>
             <h2 class="m0 w400">Add some tasks on the left.</h2>
           </header>
           <section>
-            <div class="task wrap-2x text-bigger" ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate">
-              <p class="m0 text-grey">
+            <div class="done-tasks__task wrap-2x text-bigger" ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate">
+              <p class="m0 text-grey done-tasks__task-text">
                 <i class="fa fa-check-square-o icon-spacer-right" ng-click="uncomplete_task(task)"></i>
                 {{ task.description }}
               </p>

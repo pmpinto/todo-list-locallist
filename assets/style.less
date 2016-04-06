@@ -204,71 +204,55 @@ body {
 }
 
 .task--is-editing {
-	background-color: lighten(@blue, 25%);
 	.text-white;
+	background-color: lighten(@blue, 25%);
 }
 
-
-
-
-body {
-	.left-panel {
-		main {
-			section {
-			}
-		}
-	}
-}
 
 
 
 // ### RIGHT PANEL #############################################################
 
-body {
-	.right-panel {
-		.g-100;
-		border-top: 1px solid fadeout(@black, 80%);
-		header {
-			border-bottom: 1px solid fadeout(@black, 80%);
-		}
-		section {
-			.task {
-				cursor: default;
-				.transition(background-color, 2s, ease);
-				p {
-					.transition(color, 2s, ease);
-				}
-				&:hover{
-					.true-white;
-					.transition(background-color);
-					p {
-						.text-black;
-						.transition(color);
-					}
-				}
-				&.ng-enter {
-					.transition(all, 250ms);
-					transform: scaleY(0);
-					transform-origin: top left;
-				}
-				&.ng-enter-active {
-					.transition(all, 250ms);
-					.true-white;
-					transform: scaleY(1);
-					p {
-						.text-black;
-						.transition(color);
-					}
-				}
-				&.ng-leave-active {
-					.transition(all, 250ms);
-					transform: scaleY(0);
-					transform-origin: top left;
-					opacity: 0;
-				}
-			}
+.done-tasks {
+	border-top: 1px solid fadeout(@black, 80%);
+}
+.done-tasks__header {
+	border-bottom: 1px solid fadeout(@black, 80%);
+}
+.done-tasks__task {
+	.transition(background-color, 2s, ease);
+	cursor: default;
+	&:hover{
+		.transition(background-color);
+		.true-white;
+		.done-tasks__task-text {
+			.text-black;
+			.transition(color);
 		}
 	}
+	&.ng-enter {
+		.transition(all, 250ms);
+		transform: scaleY(0);
+		transform-origin: top left;
+	}
+	&.ng-enter-active {
+		.transition(all, 250ms);
+		.true-white;
+		transform: scaleY(1);
+		.done-tasks__task-text {
+			.text-black;
+			.transition(color);
+		}
+	}
+	&.ng-leave-active {
+		.transition(all, 250ms);
+		transform: scaleY(0);
+		transform-origin: top left;
+		opacity: 0;
+	}
+}
+.done-tasks__task-text {
+	.transition(color, 2s, ease);
 }
 
 

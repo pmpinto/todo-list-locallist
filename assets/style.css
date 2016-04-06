@@ -247,58 +247,57 @@ body p a:hover {
   border-bottom: 1px solid rgba(231, 76, 60, 0.5);
 }
 .task--is-editing {
-  background-color: #7fbbe3;
   color: #ecf0f1;
+  background-color: #7fbbe3;
 }
-body .right-panel {
-  width: 100%;
+.done-tasks {
   border-top: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
-body .right-panel header {
+.done-tasks__header {
   border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
-body .right-panel section .task {
-  cursor: default;
+.done-tasks__task {
   -webkit-transition: background-color 2s ease;
   transition: background-color 2s ease;
+  cursor: default;
 }
-body .right-panel section .task p {
-  -webkit-transition: color 2s ease;
-  transition: color 2s ease;
-}
-body .right-panel section .task:hover {
-  background-color: #fff;
+.done-tasks__task:hover {
   -webkit-transition: background-color 150ms ease;
   transition: background-color 150ms ease;
+  background-color: #fff;
 }
-body .right-panel section .task:hover p {
+.done-tasks__task:hover .done-tasks__task-text {
   color: #2c3e50;
   -webkit-transition: color 150ms ease;
   transition: color 150ms ease;
 }
-body .right-panel section .task.ng-enter {
+.done-tasks__task.ng-enter {
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
   transform: scaleY(0);
   transform-origin: top left;
 }
-body .right-panel section .task.ng-enter-active {
+.done-tasks__task.ng-enter-active {
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
   background-color: #fff;
   transform: scaleY(1);
 }
-body .right-panel section .task.ng-enter-active p {
+.done-tasks__task.ng-enter-active .done-tasks__task-text {
   color: #2c3e50;
   -webkit-transition: color 150ms ease;
   transition: color 150ms ease;
 }
-body .right-panel section .task.ng-leave-active {
+.done-tasks__task.ng-leave-active {
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
   transform: scaleY(0);
   transform-origin: top left;
   opacity: 0;
+}
+.done-tasks__task-text {
+  -webkit-transition: color 2s ease;
+  transition: color 2s ease;
 }
 @media (max-width: 47.938em) {
   .flex-basis {

@@ -86,27 +86,27 @@
 							%h2.m0.w400 Type something in the input field above and press enter.
 
 			-# RIGHT PANEL
-			.right-panel.white
+			.done-tasks.white.g-100
 				%aside
 					-# REGULAR X TASKS DONE MESSAGE
-					%header.wrap-2x.true-white{"ng-if" => "get_tasks(tasks, true).length"}
+					%header.wrap-2x.true-white.done-tasks__header{"ng-if" => "get_tasks(tasks, true).length"}
 						%h1.m0.w700 Congrats!
 						%h2.m0.w400 You've accomplished {{ get_tasks(tasks, true).length }} tasks.
 
 					-# MOTIVATOR MESSAGE
-					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && get_tasks(tasks, false).length"}
+					%header.wrap-2x.true-white.done-tasks__header{"ng-if" => "!get_tasks(tasks, true).length && get_tasks(tasks, false).length"}
 						%h1.m0.w700 C'mon, you can do it!
 						%h2.m0.w400 You have {{ get_tasks(tasks, false).length }} tasks to accomplish.
 
 					-# NO TASKS AT ALL MESSAGE
-					%header.wrap-2x.true-white{"ng-if" => "!get_tasks(tasks, true).length && !get_tasks(tasks, false).length"}
+					%header.wrap-2x.true-white.done-tasks__header{"ng-if" => "!get_tasks(tasks, true).length && !get_tasks(tasks, false).length"}
 						%h1.m0.w700 Still nothing...
 						%h2.m0.w400 Add some tasks on the left.
 
 					-# COMPLETED TASKS LOOP
 					%section
-						.task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate", "ng-animate" => "'task'"}
-							%p.m0.text-grey
+						.done-tasks__task.wrap-2x.text-bigger{"ng-repeat" => "task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate", "ng-animate" => "'task'"}
+							%p.m0.text-grey.done-tasks__task-text
 								%i.fa.fa-check-square-o.icon-spacer-right{"ng-click" => "uncomplete_task(task)"}
 								{{ task.description }}
 
