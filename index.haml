@@ -56,13 +56,13 @@
 					%header.header
 						.header__container.text-even-bigger.wrap-2x.flex.align-items-center.flex-wrap
 							-# NEW TASK
-							.new-task.center{"ng-if" => "!editing_task"}
-								%input.header__input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "Type something here...", "ng-model" => "new_task.description", "ng-keydown" => "keypressed_on_new_task($event, new_task)" }
+							.header__task-container.center{"ng-if" => "!editing_task"}
+								%input.header__task-input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "Type something here...", "ng-model" => "new_task.description", "ng-keydown" => "keypressed_on_new_task($event, new_task)" }
 								%a.header__add-button.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "add_new_task(new_task)"} Add to list
 							
 							-# EDITING TASK
-							.editing-task.center{"ng-if" => "editing_task"}
-								%input.header__input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "Forgot something?", "ng-model" => "editing_task.description", "ng-keydown" => "keypressed_on_edit_task($event)" }
+							.header__task-container.center{"ng-if" => "editing_task"}
+								%input.header__task-input.g-100.wrap-1x.text-bigger.text-center{ type: "text", placeholder: "Forgot something?", "ng-model" => "editing_task.description", "ng-keydown" => "keypressed_on_edit_task($event)" }
 								%a.header__add-button.block.text-center.wrap-1x.true-white.text-blue{"ng-click" => "update_task()"} Update task
 
 					-# TASKS LOOP
@@ -85,7 +85,7 @@
 							%h1.m0.w700 Need help?
 							%h2.m0.w400 Type something in the input field above and press enter.
 
-			-# RIGHT PANEL
+			-# DONE TASKS
 			.done-tasks.white.g-100
 				%aside
 					-# REGULAR X TASKS DONE MESSAGE
