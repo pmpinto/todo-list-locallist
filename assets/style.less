@@ -38,16 +38,16 @@
 .w700 { font-weight: 700; }
 
 .wrap-1x {
-	padding: 1em;
-	@media (max-width: @screen-size-small-max) {
-		padding: 0.5em;
-	}
+    padding: 1em;
+    @media (max-width: @screen-size-small-max) {
+        padding: 0.5em;
+    }
 }
 .wrap-2x {
-	padding: 2em;
-	@media (max-width: @screen-size-small-max) {
-		padding: 1.5em;
-	}
+    padding: 2em;
+    @media (max-width: @screen-size-small-max) {
+        padding: 1.5em;
+    }
 }
 .wrap-3x { padding: 3em; }
 
@@ -70,44 +70,44 @@
 .align-items-center { align-items: center; }
 .align-items-stretch { align-items: stretch; }
 .flex-basis {
-	flex-basis: 30%;
-	@media (max-width: @screen-size-small-max) {
-		flex-basis: 100%;
-	}
+    flex-basis: 30%;
+    @media (max-width: @screen-size-small-max) {
+        flex-basis: 100%;
+    }
 }
 .flex-grow { flex-grow: 1; }
 
 [ng-click] { cursor: pointer; }
 
 .transition(@property: all, @duration: 150ms, @timing: ease){
-	-webkit-transition: @property @duration @timing;
-	transition: @property @duration @timing;
+    -webkit-transition: @property @duration @timing;
+    transition: @property @duration @timing;
 }
 
 
 body {
-	> .flex {
-		min-height: 100vh;
-	}
-	.text-sans;
-	.text-black;
-	* {
-		box-sizing: border-box;
-	}
-	.flex {
-		.flex-wrap;
-	}
-	p {
-		a {
-			text-decoration: none;
-			&:hover{
-				border-bottom: 1px solid fadeout(@blue, 50%);
-			}
-		}
-	}
-	@media (max-width: @screen-size-small-max) {
-		.text-smaller;
-	}
+    > .flex {
+        min-height: 100vh;
+    }
+    .text-sans;
+    .text-black;
+    * {
+        box-sizing: border-box;
+    }
+    .flex {
+        .flex-wrap;
+    }
+    p {
+        a {
+            text-decoration: none;
+            &:hover{
+                border-bottom: 1px solid fadeout(@blue, 50%);
+            }
+        }
+    }
+    @media (max-width: @screen-size-small-max) {
+        .text-smaller;
+    }
 }
 
 
@@ -116,30 +116,30 @@ body {
 // ### WELCOME #################################################################
 
 .welcome-screen {
-	.transition(opacity, 2s, ease);
-	opacity: 1;
-	position: fixed;
-	width: 100%;
-	z-index: 20;
-	&.ng-leave-active {
-		.transition(opacity, 250ms);
-		opacity: 0;
-	}
+    .transition(opacity, 2s, ease);
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    &.ng-leave-active {
+        .transition(opacity, 250ms);
+        opacity: 0;
+    }
 }
 .welcome-screen__wrapper {
-	.flex;
-	background-color: fadeout(@white, 8%);
-	height: 100vh;
+    .flex;
+    background-color: fadeout(@white, 8%);
+    height: 100vh;
 }
 .welcome-screen__link {
-	.transition(all, 2s, ease);
-	border-radius: 4px;
-	margin-top: 1em;
-	&:hover{
-		.blue;
-		.text-white;
-		.transition(all);
-	}
+    .transition(all, 2s, ease);
+    border-radius: 4px;
+    margin-top: 1em;
+    &:hover{
+        .blue;
+        .text-white;
+        .transition(all);
+    }
 }
 
 
@@ -147,114 +147,114 @@ body {
 // ### HEADER ##################################################################
 
 .left-panel {
-	@media (min-width: @screen-size-large-min) {
-		.g-70;
-	}
+    @media (min-width: @screen-size-large-min) {
+        .g-70;
+    }
 }
 
 .left-panel__header {
-	background-color: fadeout(@black, 65%);
-	border-bottom: 1px solid fadeout(@black, 80%);
+    background-color: fadeout(@black, 65%);
+    border-bottom: 1px solid fadeout(@black, 80%);
 }
 .left-panel__header-container {
-	height: 40vh;
-	@media (max-width: @screen-size-small-max) {
-		 height: 30vh;
-	}
+    height: 40vh;
+    @media (max-width: @screen-size-small-max) {
+         height: 30vh;
+    }
 }
 .left-panel__header-task-container {
-	@media (max-width: @screen-size-small-max) {
-		.g-100;
-	}
-	@media (min-width: @screen-size-medium-min) and (max-width: @screen-size-medium-max) {
-		.g-80;
-	}
-	@media (min-width: @screen-size-large-min) {
-		.g-70;
-	}
+    @media (max-width: @screen-size-small-max) {
+        .g-100;
+    }
+    @media (min-width: @screen-size-medium-min) and (max-width: @screen-size-medium-max) {
+        .g-80;
+    }
+    @media (min-width: @screen-size-large-min) {
+        .g-70;
+    }
 }
 .header__task-input {
-	.transition(border-color);
-	background-color: transparent;
-	border: none;
-	border-bottom: 3px solid #fff;
-	color: #fff;
-	outline: none;
-	&:hover, &:focus{
-		.transition(border-color);
-		border-color: @blue;
-	}
-	&::-webkit-input-placeholder {
-		color: fadeout(@white, 25%);
-	}
+    .transition(border-color);
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    outline: none;
+    &:hover, &:focus{
+        .transition(border-color);
+        border-color: @blue;
+    }
+    &::-webkit-input-placeholder {
+        color: fadeout(@white, 25%);
+    }
 }
 .header__add-button {
-	.transition(all, 2s, ease);
-	border-radius: 4px;
-	margin-top: 0.5em;
-	text-decoration: none;
-	&:hover{
-		.blue;
-		.text-white;
-		.transition(all);
-	}
+    .transition(all, 2s, ease);
+    border-radius: 4px;
+    margin-top: 0.5em;
+    text-decoration: none;
+    &:hover{
+        .blue;
+        .text-white;
+        .transition(all);
+    }
 }
 
 
 // ### TASK ####################################################################
 
 .task {
-	.transition(all, 500ms, ease);
-	box-shadow: 0 0px 0px rgba(0,0,0,0.5);
-	transform-origin: center left;
-	z-index: 1;
-	&:hover{
-		.transition(all);
-		box-shadow: 0 15px 60px rgba(0,0,0,0.15);
-		transform: scale(1.1);
-		z-index: 10;
-		.task__btn-remove {
-			opacity: 1;
-		}
-	}
-	&.ng-enter {
-		.transition(all, 150ms);
-		box-shadow: 0 15px 60px rgba(0,0,0,0.15);
-		opacity: 0;
-		transform: scale(1.1);
-	}
-	&.ng-leave-active {
-		.transition(all);
-		opacity: 0;
-		transform-origin: center center;
-		transform: scaleY(0.1);
-	}
-	@media (max-width: @screen-size-small-max) {
-		margin-bottom: 0.1em;
-	}
+    .transition(all, 500ms, ease);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    transform-origin: center left;
+    z-index: 1;
+    &:hover{
+        .transition(all);
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
+        transform: scale(1.1);
+        z-index: 10;
+        .task__btn-remove {
+            opacity: 1;
+        }
+    }
+    &.ng-enter {
+        .transition(all, 150ms);
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    &.ng-leave-active {
+        .transition(all);
+        opacity: 0;
+        transform-origin: center center;
+        transform: scaleY(0.1);
+    }
+    &.is-editing {
+        .text-white;
+        background-color: lighten(@blue, 25%);
+    }
+    @media (max-width: @screen-size-small-max) {
+        margin-bottom: 0.1em;
+    }
 }
 .task__text-wrapper {
-	line-height: 1.5em;
+    line-height: 1.5em;
 }
 .task__title {
-	cursor: pointer;
-	&:hover{
-		.text-blue;
-		border-bottom: 1px solid fadeout(@blue, 50%);
-	}
+    cursor: pointer;
+    &:hover{
+        .text-blue;
+        border-bottom: 1px solid fadeout(@blue, 50%);
+    }
 }
 .task__btn-remove {
-	.text-red;
-	.text-smaller;
-	margin-left: 0.5em;
-	opacity: 0;
-	&:hover{
-		border-bottom: 1px solid fadeout(@red, 50%);
-	}
-}
-.task--is-editing {
-	.text-white;
-	background-color: lighten(@blue, 25%);
+    .text-red;
+    .text-smaller;
+    margin-left: 0.5em;
+    opacity: 0;
+    &:hover{
+        border-bottom: 1px solid fadeout(@red, 50%);
+    }
 }
 
 
@@ -262,53 +262,53 @@ body {
 // ### DONE TASKS ##############################################################
 
 .done-tasks {
-	border-top: 1px solid fadeout(@black, 80%);
-	@media (min-width: @screen-size-large-min) {
-		.g-30;
-		border-left: 1px solid fadeout(@black, 80%);
-		height: 100vh;
-		overflow: scroll;
-		position: fixed;
-	}
+    border-top: 1px solid fadeout(@black, 80%);
+    @media (min-width: @screen-size-large-min) {
+        .g-30;
+        border-left: 1px solid fadeout(@black, 80%);
+        height: 100vh;
+        overflow: scroll;
+        position: fixed;
+    }
 }
 .done-tasks__header {
-	border-bottom: 1px solid fadeout(@black, 80%);
+    border-bottom: 1px solid fadeout(@black, 80%);
 }
 .done-tasks__task {
-	.transition(background-color, 2s, ease);
-	cursor: default;
-	&:hover{
-		.transition(background-color);
-		.true-white;
-		.done-tasks__task-text {
-			.text-black;
-			.transition(color);
-		}
-	}
-	&.ng-enter {
-		.transition(all, 250ms);
-		transform: scaleY(0);
-		transform-origin: top left;
-	}
-	&.ng-enter-active {
-		.transition(all, 250ms);
-		.true-white;
-		transform: scaleY(1);
-		.done-tasks__task-text {
-			.text-black;
-			.transition(color);
-		}
-	}
-	&.ng-leave-active {
-		.transition(all, 250ms);
-		transform: scaleY(0);
-		transform-origin: top left;
-		opacity: 0;
-	}
-	@media (min-width: @screen-size-large-min) {
-		border-bottom: 1px solid fadeout(@black, 80%);
-	}
+    .transition(background-color, 2s, ease);
+    cursor: default;
+    &:hover{
+        .transition(background-color);
+        .true-white;
+        .done-tasks__task-text {
+            .text-black;
+            .transition(color);
+        }
+    }
+    &.ng-enter {
+        .transition(all, 250ms);
+        transform: scaleY(0);
+        transform-origin: top left;
+    }
+    &.ng-enter-active {
+        .transition(all, 250ms);
+        .true-white;
+        transform: scaleY(1);
+        .done-tasks__task-text {
+            .text-black;
+            .transition(color);
+        }
+    }
+    &.ng-leave-active {
+        .transition(all, 250ms);
+        transform: scaleY(0);
+        transform-origin: top left;
+        opacity: 0;
+    }
+    @media (min-width: @screen-size-large-min) {
+        border-bottom: 1px solid fadeout(@black, 80%);
+    }
 }
 .done-tasks__task-text {
-	.transition(color, 2s, ease);
+    .transition(color, 2s, ease);
 }

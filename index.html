@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="Pedro Pinto" name="Author">
+    <meta name="Author" content="Pedro Pinto">
     <link href="apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
     <link href="apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
     <link href="apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
@@ -30,15 +30,13 @@
     <link href="assets/style.css" rel="stylesheet">
   </head>
   <body ng-controller="TasksController">
-    <div class="welcome-screen text-even-bigger" ng-if="!old_visitor">
+    <div ng-if="!old_visitor" class="welcome-screen text-even-bigger">
       <div class="welcome-screen__wrapper flex align-items-center">
         <div class="wrap-3x text-center text-bigger g-100">
           <h1 class="m0 w700">Welcome to LocalList!</h1>
           <h2 class="m0 w400">A todo list that gets saved to the local storage of your browser.</h2>
-          <p class="text-grey">You can learn more about it on <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a> if you wish.</p>
-          <div class="wrap-2x">
-            <a class="welcome-screen__link wrap-1x true-white text-blue" ng-click="get_started()">Get started!</a>
-          </div>
+          <p class="text-grey">You can learn more about it on <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a> if you wish.</p>
+          <div class="wrap-2x"><a ng-click="get_started()" class="welcome-screen__link wrap-1x true-white text-blue">Get started!</a></div>
         </div>
       </div>
     </div>
@@ -47,23 +45,17 @@
         <main>
           <header class="left-panel__header">
             <div class="left-panel__header-container text-even-bigger wrap-2x flex align-items-center flex-wrap">
-              <div class="left-panel__header-task-container center" ng-if="!editing_task">
-                <input class="header__task-input g-100 wrap-1x text-bigger text-center" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task.description" placeholder="Type something here..." type="text">
-                <a class="header__add-button block text-center wrap-1x true-white text-blue" ng-click="add_new_task(new_task)">Add to list</a>
+              <div ng-if="!editing_task" class="left-panel__header-task-container center">
+                <input placeholder="Type something here..." type="text" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task.description" class="header__task-input g-100 wrap-1x text-bigger text-center"><a ng-click="add_new_task(new_task)" class="header__add-button block text-center wrap-1x true-white text-blue">Add to list</a>
               </div>
-              <div class="left-panel__header-task-container center" ng-if="editing_task">
-                <input class="header__task-input g-100 wrap-1x text-bigger text-center" ng-keydown="keypressed_on_edit_task($event)" ng-model="editing_task.description" placeholder="Forgot something?" type="text">
-                <a class="header__add-button block text-center wrap-1x true-white text-blue" ng-click="update_task()">Update task</a>
+              <div ng-if="editing_task" class="left-panel__header-task-container center">
+                <input placeholder="Forgot something?" type="text" ng-keydown="keypressed_on_edit_task($event)" ng-model="editing_task.description" class="header__task-input g-100 wrap-1x text-bigger text-center"><a ng-click="update_task()" class="header__add-button block text-center wrap-1x true-white text-blue">Update task</a>
               </div>
             </div>
           </header>
           <section class="flex flex-wrap">
-            <div class="task wrap-2x text-bigger flex-basis flex-grow true-white" ng-class="{'task--is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id">
-              <p class="m0 task__text-wrapper">
-                <i class="fa fa-square-o icon-spacer-right text-grey" ng-click="complete_task(task)"></i>
-                <span class="task__title" ng-click="edit_task(task)">{{ task.description }}</span>
-                <a class="task__btn-remove text-red" ng-click="remove_task(task)">Remove</a>
-              </p>
+            <div ng-class="{'task--is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id" class="task wrap-2x text-bigger flex-basis flex-grow true-white">
+              <p class="m0 task__text-wrapper"><i ng-click="complete_task(task)" class="fa fa-square-o icon-spacer-right text-grey"></i><span ng-click="edit_task(task)" class="task__title">{{ task.description }}</span><a ng-click="remove_task(task)" class="task__btn-remove text-red">Remove</a></p>
             </div>
           </section>
           <section ng-if="!get_tasks(tasks, false).length &amp;&amp; get_tasks(tasks, true).length">
@@ -82,28 +74,25 @@
       </div>
       <div class="done-tasks white g-100">
         <aside>
-          <header class="wrap-2x true-white done-tasks__header" ng-if="get_tasks(tasks, true).length">
+          <header ng-if="get_tasks(tasks, true).length" class="wrap-2x true-white done-tasks__header">
             <h1 class="m0 w700">Congrats!</h1>
-            <h2 class="m0 w400">You've accomplished {{ get_tasks(tasks, true).length }} tasks.</h2>
+            <h2 class="m0 w400">You&#39;ve accomplished {{ get_tasks(tasks, true).length }} tasks.</h2>
           </header>
-          <header class="wrap-2x true-white done-tasks__header" ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length">
-            <h1 class="m0 w700">C'mon, you can do it!</h1>
+          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length" class="wrap-2x true-white done-tasks__header">
+            <h1 class="m0 w700">C&#39;mon, you can do it!</h1>
             <h2 class="m0 w400">You have {{ get_tasks(tasks, false).length }} tasks to accomplish.</h2>
           </header>
-          <header class="wrap-2x true-white done-tasks__header" ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length">
+          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length" class="wrap-2x true-white done-tasks__header">
             <h1 class="m0 w700">Still nothing...</h1>
             <h2 class="m0 w400">Add some tasks on the left.</h2>
           </header>
           <section>
-            <div class="done-tasks__task wrap-2x text-bigger" ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate">
-              <p class="m0 text-grey done-tasks__task-text">
-                <i class="fa fa-check-square-o icon-spacer-right" ng-click="uncomplete_task(task)"></i>
-                {{ task.description }}
-              </p>
+            <div ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate" class="done-tasks__task wrap-2x text-bigger">
+              <p class="m0 text-grey done-tasks__task-text"><i ng-click="uncomplete_task(task)" class="fa fa-check-square-o icon-spacer-right"></i>{{ task.description }}</p>
             </div>
           </section>
           <footer>
-            <p class="wrap-2x text-grey w400 text-center">Check this project at <a href="https://github.com/pmpinto/todo-list-locallist" target="_blank" class="text-blue">GitHub</a>!</p>
+            <p class="wrap-2x text-grey w400 text-center">Check this project at <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a>!</p>
           </footer>
         </aside>
       </div>
