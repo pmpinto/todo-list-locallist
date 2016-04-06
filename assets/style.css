@@ -178,21 +178,36 @@ body p a:hover {
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
-.header {
+@media (min-width: 87.5em) {
+  .left-panel {
+    width: 70%;
+  }
+}
+.left-panel__header {
   background-color: rgba(44, 62, 80, 0.35);
   border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
-.header__container {
+.left-panel__header-container {
   height: 40vh;
 }
 @media (max-width: 47.938em) {
-  .header__container {
+  .left-panel__header-container {
     height: 30vh;
   }
 }
 @media (max-width: 47.938em) {
-  .header__task-container {
+  .left-panel__header-task-container {
     width: 100%;
+  }
+}
+@media (min-width: 48em) and (max-width: 87.438em) {
+  .left-panel__header-task-container {
+    width: 80%;
+  }
+}
+@media (min-width: 87.5em) {
+  .left-panel__header-task-container {
+    width: 70%;
   }
 }
 .header__task-input {
@@ -288,6 +303,15 @@ body p a:hover {
 .done-tasks {
   border-top: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
+@media (min-width: 87.5em) {
+  .done-tasks {
+    width: 30%;
+    border-left: 1px solid rgba(44, 62, 80, 0.19999999999999996);
+    height: 100vh;
+    overflow: scroll;
+    position: fixed;
+  }
+}
 .done-tasks__header {
   border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
 }
@@ -330,32 +354,12 @@ body p a:hover {
   transform-origin: top left;
   opacity: 0;
 }
+@media (min-width: 87.5em) {
+  .done-tasks__task {
+    border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
+  }
+}
 .done-tasks__task-text {
   -webkit-transition: color 2s ease;
   transition: color 2s ease;
-}
-@media (min-width: 48em) and (max-width: 87.438em) {
-  body header .new-task,
-  body header .editing-task {
-    width: 80%;
-  }
-}
-@media (min-width: 87.5em) {
-  body header .new-task,
-  body header .editing-task {
-    width: 70%;
-  }
-  body .left-panel {
-    width: 70%;
-  }
-  body .right-panel {
-    width: 30%;
-    position: fixed;
-    height: 100vh;
-    overflow: scroll;
-    border-left: 1px solid rgba(44, 62, 80, 0.19999999999999996);
-  }
-  body .right-panel .task {
-    border-bottom: 1px solid rgba(44, 62, 80, 0.19999999999999996);
-  }
 }

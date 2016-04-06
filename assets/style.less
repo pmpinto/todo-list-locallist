@@ -146,19 +146,31 @@ body {
 
 // ### HEADER ##################################################################
 
-.header {
+.left-panel {
+	@media (min-width: @screen-size-large-min) {
+		.g-70;
+	}
+}
+
+.left-panel__header {
 	background-color: fadeout(@black, 65%);
 	border-bottom: 1px solid fadeout(@black, 80%);
 }
-.header__container {
+.left-panel__header-container {
 	height: 40vh;
 	@media (max-width: @screen-size-small-max) {
 		 height: 30vh;
 	}
 }
-.header__task-container {
+.left-panel__header-task-container {
 	@media (max-width: @screen-size-small-max) {
 		.g-100;
+	}
+	@media (min-width: @screen-size-medium-min) and (max-width: @screen-size-medium-max) {
+		.g-80;
+	}
+	@media (min-width: @screen-size-large-min) {
+		.g-70;
 	}
 }
 .header__task-input {
@@ -251,6 +263,13 @@ body {
 
 .done-tasks {
 	border-top: 1px solid fadeout(@black, 80%);
+	@media (min-width: @screen-size-large-min) {
+		.g-30;
+		border-left: 1px solid fadeout(@black, 80%);
+		height: 100vh;
+		overflow: scroll;
+		position: fixed;
+	}
 }
 .done-tasks__header {
 	border-bottom: 1px solid fadeout(@black, 80%);
@@ -286,38 +305,10 @@ body {
 		transform-origin: top left;
 		opacity: 0;
 	}
+	@media (min-width: @screen-size-large-min) {
+		border-bottom: 1px solid fadeout(@black, 80%);
+	}
 }
 .done-tasks__task-text {
 	.transition(color, 2s, ease);
-}
-
-
-
-// ### MEDIA QUERIES ###########################################################
-
-// MEDIUM SCREENS
-@media (min-width: @screen-size-medium-min) and (max-width: @screen-size-medium-max) {
-	body {
-		header {
-			.new-task, .editing-task { .g-80; }
-		}
-	}
-}
-
-// LARGE SCREENS
-@media (min-width: @screen-size-large-min) {
-	body {
-		header {
-			.new-task, .editing-task { .g-70; }
-		}
-		.left-panel { .g-70; }
-		.right-panel {
-			.g-30;
-			position: fixed;
-			height: 100vh;
-			overflow: scroll;
-			border-left: 1px solid fadeout(@black, 80%);
-			.task { border-bottom: 1px solid fadeout(@black, 80%); }
-		}
-	}
 }
