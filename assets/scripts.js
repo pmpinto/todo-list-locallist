@@ -9,11 +9,11 @@ var app = angular.module("LocalList", ["LocalStorageModule", "ngAnimate"]);
 
 
 // ### MAIN CONTROLLER #########################################################
-
 app.controller("TasksController", ["$scope", "$filter", "localStorageService", function($scope, $filter, localStorageService){
 
 	// CONTROLS THE VISIBILITY OF THE WELCOME SCREEN
 	$scope.old_visitor = localStorageService.get("oldVisitor");
+	//$scope.old_visitor = false;
 	
 	$scope.tasks = localStorageService.get("tasks") || [
 		{ id: 1, description: "Add a new task.", completed: false },
