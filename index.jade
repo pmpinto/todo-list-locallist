@@ -40,13 +40,12 @@ html(lang="en", "ng-app"="LocalList")
     body("ng-controller"="TasksController")
         .welcome-screen("ng-if"="!old_visitor")
             .welcome-screen__wrapper
-                .welcome-screen__headers.wrap-3x
+                .welcome-screen__headers
                     h1.big-header Welcome to LocalList!
                     h2.small-header A todo list that gets saved to the local storage of your browser.
                     p.text-grey You can learn more about it on <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a> if you wish.
 
-                    .wrap-2x
-                        a.welcome-screen__link.wrap-1x("ng-click"="get_started()") Get started!
+                    a.welcome-screen__link("ng-click"="get_started()") Get started!
 
         .site-container
             //- LEFT PANEL
@@ -54,20 +53,20 @@ html(lang="en", "ng-app"="LocalList")
                 main
                     //- HEADER / INPUT FIELD
                     header.left-panel__header
-                        .left-panel__header-container.wrap-2x
+                        .left-panel__header-container
                             //- NEW TASK
                             .left-panel__header-task-container("ng-if"="!editing_task")
-                                input.left-panel__header-input.wrap-1x(placeholder="Type something here...", type="text", "ng-keydown"="keypressed_on_new_task($event, new_task)", "ng-model"="new_task.description")
-                                a.left-panel__header-add-button.wrap-1x("ng-click"="add_new_task(new_task)") Add to list
+                                input.left-panel__header-input(placeholder="Type something here...", type="text", "ng-keydown"="keypressed_on_new_task($event, new_task)", "ng-model"="new_task.description")
+                                a.left-panel__header-add-button("ng-click"="add_new_task(new_task)") Add to list
                             
                             //- EDITING TASK
                             .left-panel__header-task-container("ng-if"="editing_task")
-                                input.left-panel__header-input.wrap-1x(placeholder="Forgot something?", type="text", "ng-keydown"="keypressed_on_edit_task($event)", "ng-model"="editing_task.description")
-                                a.left-panel__header-add-button.wrap-1x("ng-click"="update_task()") Update task
+                                input.left-panel__header-input(placeholder="Forgot something?", type="text", "ng-keydown"="keypressed_on_edit_task($event)", "ng-model"="editing_task.description")
+                                a.left-panel__header-add-button("ng-click"="update_task()") Update task
 
                     //- TASKS LOOP
                     section.tasks
-                        .tasks__task.wrap-2x("ng-class"="{'task--is-editing': is_editing_task(task)}", "ng-repeat"="task in get_tasks(tasks, false) track by task.id")
+                        .tasks__task("ng-class"="{'task--is-editing': is_editing_task(task)}", "ng-repeat"="task in get_tasks(tasks, false) track by task.id")
                             p.tasks__text-wrapper
                                 i.fa.fa-square-o.icon-spacer-right.text-grey("ng-click"="complete_task(task)")
                                 span.tasks__title("ng-click"="edit_task(task)") {{ task.description }}
@@ -75,13 +74,13 @@ html(lang="en", "ng-app"="LocalList")
 
                     //- NO TASKS TO DO MESSAGE
                     section("ng-if"="!get_tasks(tasks, false).length && get_tasks(tasks, true).length")
-                        .no-tasks-header.wrap-3x
+                        .no-tasks-header
                             h1.big-header You are the best!
                             h2.small-header Enjoy the fresh air outside.
 
                     //- NO TASKS AT ALL MESSAGE
                     section("ng-if"="!get_tasks(tasks, false).length && !get_tasks(tasks, true).length")
-                        .no-tasks-header.wrap-3x
+                        .no-tasks-header
                             h1.big-header Need help?
                             h2.small-header Type something in the input field above and press enter.
 
@@ -89,30 +88,30 @@ html(lang="en", "ng-app"="LocalList")
             .done-tasks
                 aside
                     //- REGULAR X TASKS DONE MESSAGE
-                    header.wrap-2x.done-tasks__header("ng-if"="get_tasks(tasks, true).length")
+                    header.done-tasks__header("ng-if"="get_tasks(tasks, true).length")
                         h1.big-header Congrats!
                         h2.small-header You&#39;ve accomplished {{ get_tasks(tasks, true).length }} tasks.
 
                     //- MOTIVATOR MESSAGE
-                    header.wrap-2x.done-tasks__header("ng-if"="!get_tasks(tasks, true).length && get_tasks(tasks, false).length")
+                    header.done-tasks__header("ng-if"="!get_tasks(tasks, true).length && get_tasks(tasks, false).length")
                         h1.big-header C&#39;mon, you can do it!
                         h2.small-header You have {{ get_tasks(tasks, false).length }} tasks to accomplish.
 
                     //- NO TASKS AT ALL MESSAGE
-                    header.wrap-2x.done-tasks__header("ng-if"="!get_tasks(tasks, true).length && !get_tasks(tasks, false).length")
+                    header.done-tasks__header("ng-if"="!get_tasks(tasks, true).length && !get_tasks(tasks, false).length")
                         h1.big-header Still nothing...
                         h2.small-header Add some tasks on the left.
 
                     //- COMPLETED TASKS LOOP
                     section
-                        .done-tasks__task.wrap-2x("ng-animate"="'task'", "ng-repeat"="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate")
+                        .done-tasks__task("ng-animate"="'task'", "ng-repeat"="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate")
                             p.done-tasks__task-text
                                 i.fa.fa-check-square-o.icon-spacer-right("ng-click"="uncomplete_task(task)")
                                 {{ task.description }}
 
                     //- FOOTER
                     footer
-                        p.footer-text.wrap-2x Check this project at <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a>!
+                        p.footer-text Check this project at <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a>!
 
 
         //- JAVASCRIPTS

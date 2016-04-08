@@ -32,11 +32,10 @@
   <body ng-controller="TasksController">
     <div ng-if="!old_visitor" class="welcome-screen">
       <div class="welcome-screen__wrapper">
-        <div class="welcome-screen__headers wrap-3x">
+        <div class="welcome-screen__headers">
           <h1 class="big-header">Welcome to LocalList!</h1>
           <h2 class="small-header">A todo list that gets saved to the local storage of your browser.</h2>
-          <p class="text-grey">You can learn more about it on <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a> if you wish.</p>
-          <div class="wrap-2x"><a ng-click="get_started()" class="welcome-screen__link wrap-1x">Get started!</a></div>
+          <p class="text-grey">You can learn more about it on <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a> if you wish.</p><a ng-click="get_started()" class="welcome-screen__link">Get started!</a>
         </div>
       </div>
     </div>
@@ -44,28 +43,28 @@
       <div class="left-panel">
         <main>
           <header class="left-panel__header">
-            <div class="left-panel__header-container wrap-2x">
+            <div class="left-panel__header-container">
               <div ng-if="!editing_task" class="left-panel__header-task-container">
-                <input placeholder="Type something here..." type="text" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task.description" class="left-panel__header-input wrap-1x"><a ng-click="add_new_task(new_task)" class="left-panel__header-add-button wrap-1x">Add to list</a>
+                <input placeholder="Type something here..." type="text" ng-keydown="keypressed_on_new_task($event, new_task)" ng-model="new_task.description" class="left-panel__header-input"><a ng-click="add_new_task(new_task)" class="left-panel__header-add-button">Add to list</a>
               </div>
               <div ng-if="editing_task" class="left-panel__header-task-container">
-                <input placeholder="Forgot something?" type="text" ng-keydown="keypressed_on_edit_task($event)" ng-model="editing_task.description" class="left-panel__header-input wrap-1x"><a ng-click="update_task()" class="left-panel__header-add-button wrap-1x">Update task</a>
+                <input placeholder="Forgot something?" type="text" ng-keydown="keypressed_on_edit_task($event)" ng-model="editing_task.description" class="left-panel__header-input"><a ng-click="update_task()" class="left-panel__header-add-button">Update task</a>
               </div>
             </div>
           </header>
           <section class="tasks">
-            <div ng-class="{'task--is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id" class="tasks__task wrap-2x">
+            <div ng-class="{'task--is-editing': is_editing_task(task)}" ng-repeat="task in get_tasks(tasks, false) track by task.id" class="tasks__task">
               <p class="tasks__text-wrapper"><i ng-click="complete_task(task)" class="fa fa-square-o icon-spacer-right text-grey"></i><span ng-click="edit_task(task)" class="tasks__title">{{ task.description }}</span><a ng-click="remove_task(task)" class="tasks__btn-remove">Remove</a></p>
             </div>
           </section>
           <section ng-if="!get_tasks(tasks, false).length &amp;&amp; get_tasks(tasks, true).length">
-            <div class="no-tasks-header wrap-3x">
+            <div class="no-tasks-header">
               <h1 class="big-header">You are the best!</h1>
               <h2 class="small-header">Enjoy the fresh air outside.</h2>
             </div>
           </section>
           <section ng-if="!get_tasks(tasks, false).length &amp;&amp; !get_tasks(tasks, true).length">
-            <div class="no-tasks-header wrap-3x">
+            <div class="no-tasks-header">
               <h1 class="big-header">Need help?</h1>
               <h2 class="small-header">Type something in the input field above and press enter.</h2>
             </div>
@@ -74,25 +73,25 @@
       </div>
       <div class="done-tasks">
         <aside>
-          <header ng-if="get_tasks(tasks, true).length" class="wrap-2x done-tasks__header">
+          <header ng-if="get_tasks(tasks, true).length" class="done-tasks__header">
             <h1 class="big-header">Congrats!</h1>
             <h2 class="small-header">You&#39;ve accomplished {{ get_tasks(tasks, true).length }} tasks.</h2>
           </header>
-          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length" class="wrap-2x done-tasks__header">
+          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; get_tasks(tasks, false).length" class="done-tasks__header">
             <h1 class="big-header">C&#39;mon, you can do it!</h1>
             <h2 class="small-header">You have {{ get_tasks(tasks, false).length }} tasks to accomplish.</h2>
           </header>
-          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length" class="wrap-2x done-tasks__header">
+          <header ng-if="!get_tasks(tasks, true).length &amp;&amp; !get_tasks(tasks, false).length" class="done-tasks__header">
             <h1 class="big-header">Still nothing...</h1>
             <h2 class="small-header">Add some tasks on the left.</h2>
           </header>
           <section>
-            <div ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate" class="done-tasks__task wrap-2x">
+            <div ng-animate="'task'" ng-repeat="task in get_tasks(tasks, true) | orderBy: '-completedDate' track by task.completedDate" class="done-tasks__task">
               <p class="done-tasks__task-text"><i ng-click="uncomplete_task(task)" class="fa fa-check-square-o icon-spacer-right"></i>{{ task.description }}</p>
             </div>
           </section>
           <footer>
-            <p class="footer-text wrap-2x">Check this project at <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a>!</p>
+            <p class="footer-text">Check this project at <a class="text-blue" href="https://github.com/pmpinto/todo-list-locallist" target="_blank">GitHub</a>!</p>
           </footer>
         </aside>
       </div>

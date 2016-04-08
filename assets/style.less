@@ -34,6 +34,11 @@
 @grid-80:   80%;
 @grid-100: 100%;
 
+@padding-0_5: 0.5em;
+@padding-1:     1em;
+@padding-1_5: 1.5em;
+@padding-2:     2em;
+@padding-3:     3em;
 
 [ng-click] { cursor: pointer; }
 
@@ -51,21 +56,20 @@
 
 
 
-
 // CONVERT TO VARIABLES AND CALL THEM FROM THE COMPONENTS
-.wrap-1x {
-    padding: 1em;
+/*.wrap-1x {
+    padding: @padding-1;
     @media (max-width: @screen-size-small-max) {
-        padding: 0.5em;
+        padding: @padding-0_5;
     }
-}
+}*/
 .wrap-2x {
-    padding: 2em;
+    padding: @padding-2;
     @media (max-width: @screen-size-small-max) {
-        padding: 1.5em;
+        padding: @padding-1_5;
     }
 }
-.wrap-3x { padding: 3em; }
+//.wrap-3x { padding: @padding-3; }
 
 
 
@@ -110,6 +114,7 @@ body {
 
 .no-tasks-header {
     font-size: @font-size-bigger;
+    padding: @padding-3;
     text-align: center;
 }
 
@@ -133,6 +138,10 @@ body {
     color: @grey;
     font-weight: @font-regular;
     text-align: center;
+    padding: @padding-2;
+    @media (max-width: @screen-size-small-max) {
+        padding: @padding-1_5;
+    }
 }
 
 
@@ -160,19 +169,25 @@ body {
     height: 100vh;
 }
 .welcome-screen__headers {
-    text-align: center;
     font-size: @font-size-big;
+    padding: @padding-3;
 }
 .welcome-screen__link {
     .transition(all, 2s, ease);
     background-color: @true-white;
     border-radius: 4px;
-    margin-top: 1em;
     color: @blue;
+    display: inline-block;
+    margin-top: @padding-2;
+    padding: @padding-1;
+    @media (max-width: @screen-size-small-max) {
+        margin-top: @padding-1_5;
+        padding: @padding-0_5;
+    }
     &:hover{
+        .transition(all);
         background-color: @blue;
         color: @white;
-        .transition(all);
     }
 }
 
@@ -197,9 +212,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-size: @font-size-bigger;
-    height: 40vh;
+    min-height: 40vh;
+    padding: @padding-2;
     @media (max-width: @screen-size-small-max) {
-         height: 30vh;
+        min-height: 30vh;
+        padding: @padding-1_5;
     }
 }
 .left-panel__header-task-container {
@@ -222,8 +239,12 @@ body {
     color: #fff;
     font-size: @font-size-big;
     outline: none;
+    padding: @padding-1;
     text-align: center;
     width: @grid-100;
+    @media (max-width: @screen-size-small-max) {
+        padding: @padding-0_5;
+    }
     &:hover, &:focus{
         .transition(border-color);
         border-color: @blue;
@@ -239,8 +260,12 @@ body {
     color: @blue;
     display: block;
     margin-top: 0.5em;
+    padding: @padding-1;
     text-align: center;
     text-decoration: none;
+    @media (max-width: @screen-size-small-max) {
+        padding: @padding-0_5;
+    }
     &:hover{
         background-color: @blue;
         color: @white;
@@ -263,6 +288,7 @@ body {
     flex-basis: 30%;
     flex-grow: 1;
     font-size: @font-size-big;
+    padding: @padding-2;
     transform-origin: center left;
     z-index: 1;
     &:hover{
@@ -292,6 +318,7 @@ body {
     }
     @media (max-width: @screen-size-small-max) {
         flex-basis: 100%;
+        padding: @padding-1_5;
         margin-bottom: 0.1em;
     }
 }
@@ -337,10 +364,15 @@ body {
 .done-tasks__header {
     background-color: @true-white;
     border-bottom: 1px solid fadeout(@black, 80%);
+    padding: @padding-2;
+    @media (max-width: @screen-size-small-max) {
+        padding: @padding-1_5;
+    }
 }
 .done-tasks__task {
     .transition(background-color, 2s, ease);
     cursor: default;
+    padding: @padding-2;
     &:hover{
         .transition(background-color);
         background-color: @true-white;
@@ -368,6 +400,9 @@ body {
         transform: scaleY(0);
         transform-origin: top left;
         opacity: 0;
+    }
+    @media (max-width: @screen-size-small-max) {
+        padding: @padding-1_5;
     }
     @media (min-width: @screen-size-large-min) {
         border-bottom: 1px solid fadeout(@black, 80%);
